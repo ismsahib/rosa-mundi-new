@@ -5,6 +5,7 @@ import { fetchGetAuthorByID } from "@root/api";
 import Error from "@root/components/Error/Error";
 import Loader from "@root/components/Loader/Loader";
 import Template from "@root/components/Template/Template";
+import Title from "@root/components/Title/Title";
 import { AuthorData } from "@root/types/author";
 
 import styles from "./styles.m.scss";
@@ -14,6 +15,7 @@ const Author = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (id) {
       (async () => {
         try {
@@ -27,10 +29,7 @@ const Author = () => {
   }, [id]);
   return (
     <Template backgroundImage="author" footer={true} header={true}>
-      <div className={styles.titleContainer}>
-        <div className={styles.title}>ROSAMUNDI</div>
-        <div className={styles.subtitle}>AU_teur</div>
-      </div>
+      <Title title="ROSAMUNDI" subtitle="AU_teur" />
       {data === "loading" && <Loader />}
       {data === "error" && <Error />}
       {data !== "error" && data !== "loading" && (

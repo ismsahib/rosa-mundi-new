@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import gmail from "@assets/images/gmail.png";
 import gmail_hover from "@assets/images/gmail_hover.png";
@@ -64,8 +65,14 @@ const Footer = () => {
     <footer className={styles.footer}>
       {FOOTER_CONTENT.map((item) => (
         <div key={item.iconName} className={styles.logo}>
-          <a
-            href={item.href}
+          <Link
+            to={item.href}
+            onTouchStart={() => {
+              setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
+            }}
+            onTouchEnd={() => {
+              setIconsHover(INITIAL_STATE);
+            }}
             onMouseEnter={() => {
               setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
             }}
@@ -74,7 +81,7 @@ const Footer = () => {
             }}
           >
             <img className={styles.image} src={`${iconsHover[item.iconName] ? item.image_hover : item.image}`} alt="" />
-          </a>
+          </Link>
         </div>
       ))}
     </footer>

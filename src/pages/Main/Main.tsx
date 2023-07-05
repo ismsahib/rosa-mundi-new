@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Template from "@root/components/Template/Template";
+import Title from "@root/components/Title/Title";
 
 import styles from "./styles.m.scss";
 
 const Main = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <Template backgroundImage="main" footer={true} header={true}>
-      <div className={styles.titleContainer}>
-        <div className={styles.title}>ROSAMUNDI</div>
-        <div className={styles.subtitle}>ГЛАВНАЯ</div>
-      </div>
+      <Title title="ROSAMUNDI" subtitle="ГЛАВНАЯ" />
       <div className={styles.menuContainer}>
         <div className={styles.menuItem}>
           <Link to="/search" className={styles.menuTitle}>
@@ -38,7 +39,7 @@ const Main = () => {
           </div>
         </div>
         <div className={styles.menuItem}>
-          <Link to="/section" className={styles.menuTitle}>
+          <Link to="/sections" className={styles.menuTitle}>
             Секции
           </Link>
           <div className={styles.menuDescription}>

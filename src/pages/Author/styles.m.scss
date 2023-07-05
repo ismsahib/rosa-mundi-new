@@ -1,70 +1,5 @@
 @import "../../styles/vars.scss";
 
-.titleContainer {
-  margin-bottom: 65px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 65px;
-  @media screen and (max-width: $tabletAlb) {
-    margin-bottom: 50px;
-  }
-  @media screen and (max-width: $tablet) {
-    gap: 35px;
-    margin-bottom: 35px;
-  }
-
-  @media screen and (max-width: $mobileAlb) {
-    margin-bottom: 15px;
-    gap: 20px;
-  }
-
-  @media screen and (max-width: $mobile) {
-    margin-bottom: 15px;
-    gap: 10px;
-  }
-  .title {
-    font-size: 200px;
-    font-weight: 500;
-
-    @media screen and (max-width: $tabletAlb) {
-      font-size: 160px;
-    }
-
-    @media screen and (max-width: $tablet) {
-      font-size: 110px;
-    }
-
-    @media screen and (max-width: $mobileAlb) {
-      font-size: 70px;
-    }
-
-    @media screen and (max-width: $mobile) {
-      font-size: 50px;
-    }
-  }
-  .subtitle {
-    font-size: 128px;
-    font-weight: 700;
-
-    @media screen and (max-width: $tabletAlb) {
-      font-size: 96px;
-    }
-
-    @media screen and (max-width: $tablet) {
-      font-size: 64px;
-    }
-
-    @media screen and (max-width: $mobileAlb) {
-      font-size: 48px;
-    }
-
-    @media screen and (max-width: $mobile) {
-      font-size: 36px;
-    }
-  }
-}
-
 .info {
   margin-bottom: 65px;
   @media screen and (max-width: $tabletAlb) {
@@ -142,9 +77,6 @@
       }
       img {
         width: 100%;
-        @media screen and (max-width: $tabletAlb) {
-          width: 75%;
-        }
       }
     }
     .description {
