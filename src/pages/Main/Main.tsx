@@ -11,8 +11,8 @@ const Main = () => {
     window.scrollTo(0, 0);
   });
   return (
-    <Template backgroundImage="main" footer={true} header={true}>
-      <Title title="ROSAMUNDI" subtitle="ГЛАВНАЯ" />
+    <Template backgroundImage="main" footer={true} header={true} headerColor={false}>
+      <Title title="ROSAMUNDI" subtitle="ГЛАВНАЯ" black={false} />
       <div className={styles.menuContainer}>
         <div className={styles.menuItem}>
           <Link to="/search" className={styles.menuTitle}>

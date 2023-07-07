@@ -1,17 +1,16 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { FC } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./styles.m.scss";
 
-const Header = () => {
-  const { pathname } = useLocation();
+const Header: FC<{ black: boolean }> = ({ black }) => {
   return (
     <header className={styles.header}>
-      <div className={`${styles.search} ${pathname === "/sections" ? styles.color : ""}`}>
+      <div className={`${styles.search} ${black ? styles.color : ""}`}>
         <a href="/#">SEA_RCH</a>
       </div>
-      <div className={`${styles.sections} ${pathname === "/sections" ? styles.color : ""}`}>
-        <a href="/#">Секции</a>
+      <div className={`${styles.sections} ${black ? styles.color : ""}`}>
+        <Link to="/sections">Секции</Link>
       </div>
     </header>
   );

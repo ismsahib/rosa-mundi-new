@@ -28,10 +28,10 @@ const Author = () => {
     }
   }, [id]);
   return (
-    <Template backgroundImage="author" footer={true} header={true}>
-      <Title title="ROSAMUNDI" subtitle="AU_teur" />
+    <Template backgroundImage="author" footer={true} header={true} headerColor={false}>
+      <Title title="ROSAMUNDI" subtitle="AU_teur" black={false} />
       {data === "loading" && <Loader />}
-      {data === "error" && <Error />}
+      {data === "error" && <Error black={false} />}
       {data !== "error" && data !== "loading" && (
         <div className={styles.info}>
           <div className={styles.lfname}>{data.last_name + " " + data.first_name}</div>
@@ -49,7 +49,12 @@ const Author = () => {
           <div className={styles.links}>
             <div className={styles.linksTitle}>Работы автора:</div>
             {data.links.map((link) => (
-              <Link to={`/${link.type}/${link.id}`} key={link.id} className={styles.link}>
+              <Link
+                to={`/${link.type}/${link.id}`}
+                state={{ type: link.type === "section" && "tematicPublication" }}
+                key={link.id}
+                className={styles.link}
+              >
                 {link.name}
               </Link>
             ))}

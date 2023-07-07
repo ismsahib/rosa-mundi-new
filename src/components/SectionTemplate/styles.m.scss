@@ -1,0 +1,134 @@
+@import "../../styles/vars.scss";
+
+.publication {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media screen and (max-width: $mobileAlb) {
+    gap: 15px;
+  }
+
+  .author {
+    color: #000;
+    font-size: 64px;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: $tablet) {
+      font-size: 48px;
+    }
+
+    @media screen and (max-width: $mobileAlb) {
+      font-size: 32px;
+    }
+  }
+  .contentName {
+    font-size: 40px;
+    font-weight: 600;
+
+    @media screen and (max-width: $tablet) {
+      font-size: 36px;
+    }
+
+    @media screen and (max-width: $mobileAlb) {
+      font-size: 24px;
+    }
+  }
+  .content {
+    font-size: 32px;
+    font-weight: 400;
+    @media screen and (max-width: $tablet) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: $mobileAlb) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: $mobile) {
+      font-size: 14px;
+    }
+  }
+}
+.center {
+  text-align: center;
+}
+.publicationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  @media screen and (max-width: $tablet) {
+    gap: 50px;
+  }
+  @media screen and (max-width: $mobileAlb) {
+    gap: 25px;
+  }
+}
+
+.sectionContents {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #000;
+  margin-bottom: 100px;
+
+  @media screen and (max-width: $tabletAlb) {
+    margin-bottom: 50px;
+  }
+
+  @media screen and (max-width: $mobileAlb) {
+    margin-bottom: 15px;
+  }
+
+  .sectionContentsTitle {
+    font-size: 96px;
+    font-weight: 500;
+
+    @media screen and (max-width: $tablet) {
+      font-size: 64px;
+    }
+
+    @media screen and (max-width: $mobileAlb) {
+      font-size: 36px;
+    }
+  }
+  .sectionContentsItem {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #000;
+    a {
+      color: #000;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+    .sectionContentsAuthor {
+      font-size: 64px;
+      font-weight: 400;
+      color: #000;
+
+      @media screen and (max-width: $tablet) {
+        font-size: 48px;
+      }
+      @media screen and (max-width: $mobileAlb) {
+        font-size: 32px;
+      }
+    }
+    .sectionContentsName {
+      font-size: 40px;
+      font-weight: 500;
+      color: #000;
+      @media screen and (max-width: $tablet) {
+        font-size: 36px;
+      }
+      @media screen and (max-width: $mobileAlb) {
+        font-size: 24px;
+      }
+    }
+  }
+}

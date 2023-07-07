@@ -25,10 +25,10 @@ const Sections = () => {
     })();
   }, []);
   return (
-    <Template backgroundImage="sections" header={true} footer={true}>
+    <Template backgroundImage="sections" header={true} footer={true} headerColor={true}>
       <div className={styles.title}>ROSAMUNDI</div>
       {data === "loading" && <Loader />}
-      {data === "error" && <Error />}
+      {data === "error" && <Error black={true} />}
       {data !== "error" && data !== "loading" && data.size === 0 && <Loader />}
       {data !== "error" && data !== "loading" && data.size !== 0 && (
         <div className={styles.sectionsContainer}>
@@ -39,7 +39,7 @@ const Sections = () => {
                   <div>0</div>
                   <div>{index + 1}</div>
                 </div>
-                <Link to={`/section/${section.id}`} className={styles.sectionLink}>
+                <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
                   {SECTIONS_NAMES[index]}
                 </Link>
                 <div className={styles.sectionArrow}>{">"}</div>

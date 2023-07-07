@@ -10,8 +10,8 @@ const About = () => {
     window.scrollTo(0, 0);
   });
   return (
-    <Template backgroundImage="about" footer={true} header={true}>
-      <Title title="ROSAMUNDI" subtitle="[Π]ληροφορίες" />
+    <Template backgroundImage="about" footer={true} header={true} headerColor={false}>
+      <Title title="ROSAMUNDI" subtitle="[Π]ληροφορίες" black={false} />
       <p className={styles.paragraph}>
         Добро пожаловать в ROSAMUNDI, поэтический журнал, вдохновленный мистической философией Даниила Андреева и его
         концепцией Розы Мира. По своей сути, ROSAMUNDI - это исследование человеческого опыта через поэзию и приглашение
