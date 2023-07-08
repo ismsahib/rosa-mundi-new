@@ -12,10 +12,15 @@ import styles from "./styles.m.scss";
 
 const Publication = () => {
   const [data, setData] = useState<PublicationData | "loading" | "error">("loading");
+  const [loader, setLoader] = useState(true);
+
   const { id } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000);
     if (id) {
       (async () => {
         try {
@@ -26,13 +31,14 @@ const Publication = () => {
         }
       })();
     }
+    return () => clearTimeout(timer);
   }, [id]);
   return (
     <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
       <div className={styles.title}>ROSAMUNDI</div>
-      {data === "loading" && <Loader />}
-      {data === "error" && <Error black={true} />}
-      {data !== "error" && data !== "loading" && <SectionTemplate type="publication" data={data} />}
+      {(data === "loading" || loader) && <Loader />}
+      {data === "error" && !loader && <Error black={true} />}
+      {data !== "error" && data !== "loading" && !loader && <SectionTemplate type="publication" data={data} />}
     </Template>
   );
 };

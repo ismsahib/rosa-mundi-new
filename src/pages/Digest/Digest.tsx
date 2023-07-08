@@ -12,9 +12,13 @@ import styles from "./styles.m.scss";
 
 const Digest = () => {
   const [data, setData] = useState<DigestData | "loading" | "error">("loading");
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000);
     (async () => {
       try {
         const response = await fetchGetDigest();
@@ -23,6 +27,7 @@ const Digest = () => {
         setData("error");
       }
     })();
+    return () => clearTimeout(timer);
   }, []);
   return (
     <Template backgroundImage="digest" footer={false} header={false}>
@@ -49,10 +54,11 @@ const Digest = () => {
       </div>
       <div className={styles.linebot} />
       <div className={styles.digestContent}>
-        {data === "loading" && <Loader />}
-        {data === "error" && <Error black={false} />}
+        {(data === "loading" || loader) && <Loader />}
+        {data === "error" && !loader && <Error black={false} />}
         {data !== "error" &&
           data !== "loading" &&
+          !loader &&
           data.map((digestItem) => (
             <div key={digestItem.id}>
               <Link to={`/section/tematic/${digestItem.id}`} className={styles.digestItem}>

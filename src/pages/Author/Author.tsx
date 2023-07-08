@@ -12,10 +12,15 @@ import styles from "./styles.m.scss";
 
 const Author = () => {
   const [data, setData] = useState<AuthorData | "loading" | "error">("loading");
+  const [loader, setLoader] = useState(true);
+
   const { id } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000);
     if (id) {
       (async () => {
         try {
@@ -26,13 +31,14 @@ const Author = () => {
         }
       })();
     }
+    return () => clearTimeout(timer);
   }, [id]);
   return (
     <Template backgroundImage="author" footer={true} header={true} headerColor={false}>
       <Title title="ROSAMUNDI" subtitle="AU_teur" black={false} />
-      {data === "loading" && <Loader />}
-      {data === "error" && <Error black={false} />}
-      {data !== "error" && data !== "loading" && (
+      {(data === "loading" || loader) && <Loader />}
+      {data === "error" && !loader && <Error black={false} />}
+      {data !== "error" && data !== "loading" && !loader && (
         <div className={styles.info}>
           <div className={styles.lfname}>{data.last_name + " " + data.first_name}</div>
           {!!data.middle_name && <div className={styles.mname}>{data.middle_name}</div>}

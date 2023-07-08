@@ -14,8 +14,13 @@ const SECTIONS_NAMES_RU = ["ПЕРВОЙ", "ВТОРОЙ", "ТРЕТЬЕЙ", "Ч
 
 const Sections = () => {
   const [data, setData] = useState<SectionPaginatedData | "loading" | "error">("loading");
+  const [loader, setLoader] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000);
     (async () => {
       try {
         const response = await fetchGetSections(1, 5);
@@ -24,35 +29,33 @@ const Sections = () => {
         setData("error");
       }
     })();
+    return () => clearTimeout(timer);
   }, []);
   return (
     <Template backgroundImage="sections" header={true} footer={true} headerColor={true}>
       <div className={styles.title}>ROSAMUNDI</div>
-      {data === "loading" && <Loader />}
-      {data === "error" && <Error black={true} />}
+      {(data === "loading" || loader) && <Loader />}
+      {data === "error" && !loader && <Error black={true} />}
       {data !== "error" && data !== "loading" && data.size === 0 && <Loader />}
-      {data !== "error" && data !== "loading" && data.size !== 0 && (
+      {data !== "error" && data !== "loading" && !loader && data.size !== 0 && (
         <div className={styles.sectionsContainer}>
-          {data.sections
-            .reverse()
-            .map((section, index) => (
-              <div key={section.id} className={styles.section}>
-                <div className={styles.sectionItem}>
-                  <div className={styles.sectionNumber}>
-                    <div>0</div>
-                    <div>{index + 1}</div>
-                  </div>
-                  <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
-                    {SECTIONS_NAMES[index]}
-                  </Link>
-                  <div className={styles.sectionArrow}>{">"}</div>
+          {data.sections.map((section, index) => (
+            <div key={section.id} className={styles.section}>
+              <div className={styles.sectionItem}>
+                <div className={styles.sectionNumber}>
+                  <div>0</div>
+                  <div>{5 - index}</div>
                 </div>
-                <div
-                  className={styles.sectionDescription}
-                >{`ЗДЕСЬ ВЫ МОЖЕТЕ ОЗНАКОМИТЬСЯ С МАТЕРИАЛАМИ ${SECTIONS_NAMES_RU[index]} СЕКЦИИ`}</div>
+                <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
+                  {SECTIONS_NAMES[index]}
+                </Link>
+                <div className={styles.sectionArrow}>{">"}</div>
               </div>
-            ))
-            .reverse()}
+              <div className={styles.sectionDescription}>{`ЗДЕСЬ ВЫ МОЖЕТЕ ОЗНАКОМИТЬСЯ С МАТЕРИАЛАМИ ${
+                SECTIONS_NAMES_RU[5 - 1 - index]
+              } СЕКЦИИ`}</div>
+            </div>
+          ))}
         </div>
       )}
     </Template>

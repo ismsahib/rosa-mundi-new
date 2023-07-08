@@ -10,9 +10,14 @@ import { SectionData } from "@root/types/section";
 
 const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSection }) => {
   const [data, setData] = useState<SectionData | "loading" | "error">("loading");
+  const [loader, setLoader] = useState(true);
+
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000);
     if (id) {
       (async () => {
         try {
@@ -23,15 +28,16 @@ const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSe
         }
       })();
     }
+    return () => clearTimeout(timer);
   }, [id]);
   return (
     <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
-      {data === "loading" && <Loader />}
-      {data === "error" && <Error black={true} />}
-      {data !== "error" && data !== "loading" && typeSection === "tematicPublication" && (
+      {(data === "loading" || loader) && <Loader />}
+      {data === "error" && !loader && <Error black={true} />}
+      {data !== "error" && data !== "loading" && !loader && typeSection === "tematicPublication" && (
         <SectionTemplate type="tematicPublication" data={data} />
       )}
-      {data !== "error" && data !== "loading" && typeSection === "section" && (
+      {data !== "error" && data !== "loading" && !loader && typeSection === "section" && (
         <SectionTemplate type="section" data={data} />
       )}
     </Template>
