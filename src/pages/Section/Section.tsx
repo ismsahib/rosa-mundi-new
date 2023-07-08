@@ -11,7 +11,6 @@ import { SectionData } from "@root/types/section";
 const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSection }) => {
   const [data, setData] = useState<SectionData | "loading" | "error">("loading");
   const { id } = useParams();
-
   useEffect(() => {
     window.scrollTo(0, 0);
     if (id) {

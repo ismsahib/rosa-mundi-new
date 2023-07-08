@@ -7,14 +7,11 @@ import { SectionData } from "@root/types/section";
 
 import styles from "./styles.m.scss";
 
-const SUBTITLES = ["ПЕРВАЯ", "ВТОРАЯ", "ТРЕТЬЯ", "ЧЕТВЕРТАЯ", "ПЯТАЯ"];
-
 interface SectionTemplate {
   type: "publication" | "section" | "tematicPublication";
   data: PublicationData | SectionData;
-  subtitleIndex?: number;
 }
-const SectionTemplate: FC<SectionTemplate> = ({ data, type, subtitleIndex }) => {
+const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
   return (
     <>
       {type === "publication" && (
@@ -54,9 +51,9 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type, subtitleIndex }) => 
           </div>
         </>
       )}
-      {type === "section" && !!subtitleIndex && (
+      {type === "section" && (
         <>
-          <Title title="ROSAMUNDI" subtitle={`${SUBTITLES[subtitleIndex]} СЕКЦИЯ`} black={true} />
+          <Title title="ROSAMUNDI" subtitle={(data as SectionData).name} black={true} />
           <div className={styles.sectionContents}>
             <div className={styles.sectionContentsTitle}>Содержание:</div>
             {(data as SectionData).publications.map((publication) => (

@@ -34,6 +34,7 @@ const Sections = () => {
       {data !== "error" && data !== "loading" && data.size !== 0 && (
         <div className={styles.sectionsContainer}>
           {data.sections
+            .reverse()
             .map((section, index) => (
               <div key={section.id} className={styles.section}>
                 <div className={styles.sectionItem}>
