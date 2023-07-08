@@ -7,7 +7,7 @@ const Header: FC<{ black: boolean }> = ({ black }) => {
   return (
     <header className={styles.header}>
       <div className={`${styles.search} ${black ? styles.color : ""}`}>
-        <a href="/#">SEA_RCH</a>
+        <Link to="/search">SEA_RCH</Link>
       </div>
       <div className={`${styles.sections} ${black ? styles.color : ""}`}>
         <Link to="/sections">Секции</Link>
