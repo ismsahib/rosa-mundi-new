@@ -10,6 +10,7 @@ import { SectionPaginatedData } from "@root/types/section";
 import styles from "./styles.m.scss";
 
 const SECTIONS_NAMES = ["første sektion", "anden sektion", "tredje sektion", "fjerde sektion", "femte sektion"];
+const SECTIONS_NAMES_RU = ["ПЕРВОЙ", "ВТОРОЙ", "ТРЕТЬЕЙ", "ЧЕТВЕРТОЙ", "ПЯТОЙ"];
 
 const Sections = () => {
   const [data, setData] = useState<SectionPaginatedData | "loading" | "error">("loading");
@@ -35,14 +36,19 @@ const Sections = () => {
           {data.sections
             .map((section, index) => (
               <div key={section.id} className={styles.section}>
-                <div className={styles.sectionNumber}>
-                  <div>0</div>
-                  <div>{index + 1}</div>
+                <div className={styles.sectionItem}>
+                  <div className={styles.sectionNumber}>
+                    <div>0</div>
+                    <div>{index + 1}</div>
+                  </div>
+                  <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
+                    {SECTIONS_NAMES[index]}
+                  </Link>
+                  <div className={styles.sectionArrow}>{">"}</div>
                 </div>
-                <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
-                  {SECTIONS_NAMES[index]}
-                </Link>
-                <div className={styles.sectionArrow}>{">"}</div>
+                <div
+                  className={styles.sectionDescription}
+                >{`ЗДЕСЬ ВЫ МОЖЕТЕ ОЗНАКОМИТЬСЯ С МАТЕРИАЛАМИ ${SECTIONS_NAMES_RU[index]} СЕКЦИИ`}</div>
               </div>
             ))
             .reverse()}

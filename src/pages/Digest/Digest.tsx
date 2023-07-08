@@ -29,7 +29,13 @@ const Digest = () => {
       <header className={styles.header}>
         {menuItems.map((item) => (
           <div key={item.name} className={styles.headerItem}>
-            <Link to={item.href}>{item.name}</Link>
+            {item.name === "ГЛАВНАЯ" || item.name === "СЕКЦИИ" ? (
+              <Link to={item.href}>{item.name}</Link>
+            ) : (
+              <a href={item.href} target="_blank" rel="noreferrer">
+                {item.name}
+              </a>
+            )}
           </div>
         ))}
       </header>
@@ -62,7 +68,9 @@ const Digest = () => {
       <div className={styles.linebottom} />
       <footer className={styles.footer}>
         <div className={styles.footerLink}>
-          <a href="/#">contact us any line</a>
+          <a href="mailto:rosa.mundi.redaction@gmail.com" target="_blank" rel="noreferrer">
+            contact us any line
+          </a>
         </div>
         <div className={styles.footerDescription}>
           если вы считаете, что ваша подборка должна быть опубликована редакцией: <Link to="/about">о нас</Link>

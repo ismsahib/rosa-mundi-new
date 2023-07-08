@@ -47,65 +47,93 @@
   }
   .section {
     width: 100%;
-    border-top: 5px solid #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .sectionNumber {
-      color: #000;
+    @media screen and (max-width: $mobile) {
+      padding: 10px 15px;
+      border: 3px solid #000;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12.5px);
+    }
+    .sectionItem {
+      width: 100%;
+      border-top: 5px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media screen and (max-width: $mobile) {
+        justify-content: center;
+        border-top: none;
+      }
+      .sectionNumber {
+        color: #000;
+        text-align: center;
+        font-size: 32px;
+        font-family: "Geostar Fill";
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+        @media screen and (max-width: $mobile) {
+          display: none;
+        }
+      }
+      .sectionLink {
+        text-align: center;
+        color: #000;
+        font-size: 80px;
+        font-family: "Elephant";
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: uppercase;
+        &:hover {
+          text-decoration: underline;
+        }
+        @media screen and (max-width: $tabletAlb) {
+          font-size: 60px;
+        }
+        @media screen and (max-width: $tablet) {
+          font-size: 50px;
+        }
+
+        @media screen and (max-width: $mobileAlb) {
+          font-size: 40px;
+        }
+
+        @media screen and (max-width: $mobile) {
+          font-size: 32px;
+        }
+      }
+      .sectionArrow {
+        color: #000;
+        font-size: 80px;
+        font-family: "Geostar Fill";
+        font-style: normal;
+        @media screen and (max-width: $tabletAlb) {
+          font-size: 60px;
+        }
+        @media screen and (max-width: $tablet) {
+          font-size: 50px;
+        }
+
+        @media screen and (max-width: $mobileAlb) {
+          font-size: 40px;
+        }
+
+        @media screen and (max-width: $mobile) {
+          display: none;
+        }
+      }
+    }
+    .sectionDescription {
       text-align: center;
-      font-size: 32px;
       font-family: "Geostar Fill";
+      font-size: 14px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
       text-transform: uppercase;
-    }
-    .sectionLink {
-      text-align: center;
-      color: #000;
-      font-size: 80px;
-      font-family: "Elephant";
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      text-transform: uppercase;
-      &:hover {
-        text-decoration: underline;
-      }
-      @media screen and (max-width: $tabletAlb) {
-        font-size: 60px;
-      }
-      @media screen and (max-width: $tablet) {
-        font-size: 50px;
-      }
-
-      @media screen and (max-width: $mobileAlb) {
-        font-size: 40px;
-      }
-
       @media screen and (max-width: $mobile) {
-        font-size: 32px;
-      }
-    }
-    .sectionArrow {
-      color: #000;
-      font-size: 80px;
-      font-family: "Geostar Fill";
-      font-style: normal;
-      @media screen and (max-width: $tabletAlb) {
-        font-size: 60px;
-      }
-      @media screen and (max-width: $tablet) {
-        font-size: 50px;
-      }
-
-      @media screen and (max-width: $mobileAlb) {
-        font-size: 40px;
-      }
-
-      @media screen and (max-width: $mobile) {
-        font-size: 32px;
+        font-size: 10px;
       }
     }
   }

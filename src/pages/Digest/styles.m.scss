@@ -171,14 +171,22 @@
       }
     }
     .digestContentText {
-      height: 150px;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
       overflow: hidden;
+      -ms-line-clamp: 5;
+      -webkit-line-clamp: 5;
+      line-clamp: 5;
       font-family: "Roboto";
       font-size: 20px;
       font-weight: 400;
-
+      display: -webkit-box;
+      display: box;
+      word-wrap: break-word;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
       @media screen and (max-width: $mobileAlb) {
-        height: 100px;
         font-size: 10px;
       }
     }

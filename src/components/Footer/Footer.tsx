@@ -22,13 +22,13 @@ const FOOTER_CONTENT: {
 }[] = [
   {
     iconName: "youtube",
-    href: "/#",
+    href: "https://www.youtube.com/@ROSA_MUNDI_REDACTION",
     image: youtube,
     image_hover: youtube_hover,
   },
   {
     iconName: "gmail",
-    href: "/#",
+    href: "mailto:rosa.mundi.redaction@gmail.com",
     image: gmail,
     image_hover: gmail_hover,
   },
@@ -40,13 +40,13 @@ const FOOTER_CONTENT: {
   },
   {
     iconName: "vk",
-    href: "/#",
+    href: "https://vk.com/rosamundi",
     image: vk,
     image_hover: vk_hover,
   },
   {
     iconName: "tg",
-    href: "/#",
+    href: "https://t.me/rosa_mundi_tg",
     image: tg,
     image_hover: tg_hover,
   },
@@ -65,23 +65,54 @@ const Footer = () => {
     <footer className={styles.footer}>
       {FOOTER_CONTENT.map((item) => (
         <div key={item.iconName} className={styles.logo}>
-          <Link
-            to={item.href}
-            onTouchStart={() => {
-              setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
-            }}
-            onTouchEnd={() => {
-              setIconsHover(INITIAL_STATE);
-            }}
-            onMouseEnter={() => {
-              setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
-            }}
-            onMouseLeave={() => {
-              setIconsHover(INITIAL_STATE);
-            }}
-          >
-            <img className={styles.image} src={`${iconsHover[item.iconName] ? item.image_hover : item.image}`} alt="" />
-          </Link>
+          {item.iconName === "logo" && (
+            <Link
+              to={item.href}
+              onTouchStart={() => {
+                setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
+              }}
+              onTouchEnd={() => {
+                setIconsHover(INITIAL_STATE);
+              }}
+              onMouseEnter={() => {
+                setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
+              }}
+              onMouseLeave={() => {
+                setIconsHover(INITIAL_STATE);
+              }}
+            >
+              <img
+                className={styles.image}
+                src={`${iconsHover[item.iconName] ? item.image_hover : item.image}`}
+                alt=""
+              />
+            </Link>
+          )}
+          {item.iconName !== "logo" && (
+            <a
+              href={item.href}
+              target="_blank"
+              onTouchStart={() => {
+                setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
+              }}
+              onTouchEnd={() => {
+                setIconsHover(INITIAL_STATE);
+              }}
+              onMouseEnter={() => {
+                setIconsHover({ ...INITIAL_STATE, [item.iconName]: true });
+              }}
+              onMouseLeave={() => {
+                setIconsHover(INITIAL_STATE);
+              }}
+              rel="noreferrer"
+            >
+              <img
+                className={styles.image}
+                src={`${iconsHover[item.iconName] ? item.image_hover : item.image}`}
+                alt=""
+              />
+            </a>
+          )}
         </div>
       ))}
     </footer>

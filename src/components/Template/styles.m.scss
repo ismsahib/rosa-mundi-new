@@ -4,11 +4,8 @@
   width: 100vw;
   min-height: 100vh;
   height: 100%;
-  background-size: 100% 100%;
+  background-size: cover;
   padding: 30px 20px;
-  @media screen and (max-width: $tabletAlb) {
-    background-size: cover;
-  }
 
   @media screen and (max-width: $mobileAlb) {
     padding: 15px 20px;
