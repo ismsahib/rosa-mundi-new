@@ -13,7 +13,7 @@ import Header from "../Header/Header";
 import styles from "./styles.m.scss";
 
 interface TemplateProps {
-  backgroundImage: "main" | "about" | "author" | "digest" | "publication" | "search" | "sections";
+  backgroundImage: "main" | "about" | "author" | "digest" | "publication" | "search" | "sections" | string;
   header: boolean;
   children: ReactNode;
   footer: boolean;
@@ -44,6 +44,7 @@ const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer
       imageURL = sections;
       break;
     default:
+      imageURL = backgroundImage;
       break;
   }
   return (

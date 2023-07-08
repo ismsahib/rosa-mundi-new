@@ -1,0 +1,25 @@
+.text {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  text-align: center;
+  padding: 0 4%;
+  .h1 {
+    margin: 0;
+    font-size: 60px;
+  }
+  a {
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    color: #fefefe;
+    font-weight: 400;
+    text-decoration: none;
+    border: 1px solid #fefefe;
+    &:hover {
+      background-color: #fefefe;
+      color: black;
+    }
+  }
+}
