@@ -17,7 +17,7 @@ interface TemplateProps {
   header: boolean;
   children: ReactNode;
   footer: boolean;
-  headerColor: boolean;
+  headerColor?: boolean;
 }
 const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer, headerColor }) => {
   let imageURL = main;
@@ -58,7 +58,7 @@ const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer
       }}
     >
       <div className={styles.content}>
-        {header && <Header black={headerColor} />}
+        {header && headerColor !== undefined && <Header black={headerColor} />}
         {children}
         {footer && <Footer />}
       </div>

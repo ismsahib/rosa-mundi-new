@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import About from "./pages/About/About";
 import Author from "./pages/Author/Author";
+import Digest from "./pages/Digest/Digest";
 import Main from "./pages/Main/Main";
 import Publication from "./pages/Publication/Publication";
 import Section from "./pages/Section/Section";
@@ -16,10 +17,9 @@ const App = () => {
       <Route path="/author/:id" element={<Author />}></Route>
       <Route path="/sections" element={<Sections />}></Route>
       <Route path="/publication/:id" element={<Publication />}></Route>
-      <Route path="/section/:id" element={<Section />}></Route>
-      {/* <Route path="/digest" element={<Digest />}></Route>
-      <Route path="/search" element={<Search />}></Route>
-      <Route path="/section/:editionPage" element={<EditionPage />}></Route> */}
+      <Route path="/section/:id" element={<Section typeSection="section" />}></Route>
+      <Route path="/section/tematic/:id" element={<Section typeSection="tematicPublication" />}></Route>
+      <Route path="/digest" element={<Digest />}></Route>
     </Routes>
   );
 };
