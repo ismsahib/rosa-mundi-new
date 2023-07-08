@@ -1,6 +1,7 @@
 @import "../../styles/vars.scss";
 
 .publication {
+  width: 100%;
   color: #000;
   display: flex;
   flex-direction: column;
@@ -58,6 +59,7 @@
   text-align: center;
 }
 .publicationContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -70,6 +72,7 @@
 }
 
 .sectionContents {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -108,6 +111,7 @@
       text-decoration: underline;
     }
     .sectionContentsAuthor {
+      text-align: left;
       font-size: 64px;
       font-weight: 400;
       color: #000;
