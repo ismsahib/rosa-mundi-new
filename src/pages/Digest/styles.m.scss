@@ -175,6 +175,8 @@
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis;
       overflow: hidden;
+      -ms-overflow: hidden;
+      -webkit-overflow: hidden;
       -ms-line-clamp: 5;
       -webkit-line-clamp: 5;
       line-clamp: 5;
@@ -186,8 +188,6 @@
       word-wrap: break-word;
       -webkit-box-orient: vertical;
       box-orient: vertical;
-      touch-action: none;
-      -ms-touch-action: none;
       @media screen and (max-width: $mobileAlb) {
         font-size: 10px;
       }
