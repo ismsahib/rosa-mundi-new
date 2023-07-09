@@ -162,8 +162,12 @@
 
   .digestItem {
     width: 100%;
+    height: 300px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: $mobileAlb) {
+      height: 150px;
+    }
     gap: 10px;
     &:hover {
       .digestContentText {
@@ -171,8 +175,6 @@
       }
     }
     .digestContentText {
-      max-height: 150px;
-      height: max-content;
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis;
