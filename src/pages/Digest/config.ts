@@ -1,7 +1,7 @@
 export const menuItems: { href: string; name: string }[] = [
   { href: "/", name: "ГЛАВНАЯ" },
   { href: "/sections", name: "СЕКЦИИ" },
-  { href: "#", name: "ПОИСК" },
+  { href: "/search", name: "ПОИСК" },
   { href: "https://t.me/rosa_mundi_tg", name: "TELEGRAM" },
   { href: "https://www.youtube.com/@ROSA_MUNDI_REDACTION", name: "YOUTUBE" },
   { href: "https://vk.com/rosamundi", name: "ВКОНТАКТЕ" },

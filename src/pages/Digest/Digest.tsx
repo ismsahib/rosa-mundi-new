@@ -34,7 +34,7 @@ const Digest = () => {
       <header className={styles.header}>
         {menuItems.map((item) => (
           <div key={item.name} className={styles.headerItem}>
-            {item.name === "ГЛАВНАЯ" || item.name === "СЕКЦИИ" ? (
+            {item.name === "ГЛАВНАЯ" || item.name === "СЕКЦИИ" || item.name === "ПОИСК" ? (
               <Link to={item.href}>{item.name}</Link>
             ) : (
               <a href={item.href} target="_blank" rel="noreferrer">

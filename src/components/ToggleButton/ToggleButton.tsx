@@ -6,7 +6,7 @@ import styles from "./styles.m.scss";
 const ToggleButton: FC<{ checked: boolean; id: string; cb: (...args: any) => any }> = ({ checked, id, cb }) => {
   return (
     <>
-      <input type="checkbox" id={`${id}`} className={styles.toggleInput} checked={checked} onClick={cb} />
+      <input type="checkbox" id={`${id}`} className={styles.toggleInput} checked={checked} onChange={cb} />
       <label htmlFor={`${id}`} className={styles.toggle}></label>
     </>
   );

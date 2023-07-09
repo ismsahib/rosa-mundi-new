@@ -9,9 +9,6 @@ import { SectionPaginatedData } from "@root/types/section";
 
 import styles from "./styles.m.scss";
 
-const SECTIONS_NAMES = ["første sektion", "anden sektion", "tredje sektion", "fjerde sektion", "femte sektion"];
-const SECTIONS_NAMES_RU = ["ПЕРВОЙ", "ВТОРОЙ", "ТРЕТЬЕЙ", "ЧЕТВЕРТОЙ", "ПЯТОЙ"];
-
 const Sections = () => {
   const [data, setData] = useState<SectionPaginatedData | "loading" | "error">("loading");
   const [loader, setLoader] = useState(true);
@@ -47,13 +44,11 @@ const Sections = () => {
                   <div>{5 - index}</div>
                 </div>
                 <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
-                  {SECTIONS_NAMES[index]}
+                  {section.title ? section.title : ""}
                 </Link>
                 <div className={styles.sectionArrow}>{">"}</div>
               </div>
-              <div className={styles.sectionDescription}>{`ЗДЕСЬ ВЫ МОЖЕТЕ ОЗНАКОМИТЬСЯ С МАТЕРИАЛАМИ ${
-                SECTIONS_NAMES_RU[5 - 1 - index]
-              } СЕКЦИИ`}</div>
+              <div className={styles.sectionDescription}>{section.description ? section.description : ""}</div>
             </div>
           ))}
         </div>

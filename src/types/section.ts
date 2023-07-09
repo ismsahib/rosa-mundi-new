@@ -9,8 +9,9 @@ export type SectionData = {
 
 export type SectionCompactData = {
   id: string;
-  name: string;
+  title: string;
   photo_link?: string;
+  description?: string;
 };
 
 export type SectionPaginatedData = {
