@@ -175,11 +175,9 @@
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis;
       overflow: hidden;
-      -ms-overflow: hidden;
-      -webkit-overflow: hidden;
-      -ms-line-clamp: 5;
-      -webkit-line-clamp: 5;
-      line-clamp: 5;
+      -ms-line-clamp: 6;
+      -webkit-line-clamp: 6;
+      line-clamp: 6;
       font-family: "Roboto";
       font-size: 20px;
       font-weight: 400;
@@ -204,10 +202,14 @@
         height: 40px;
       }
       .author {
+        max-width: 40%;
         font-family: "Roboto";
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
         @media screen and (max-width: $mobileAlb) {
           font-size: 10px;
         }
