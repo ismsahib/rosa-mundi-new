@@ -186,6 +186,8 @@
       word-wrap: break-word;
       -webkit-box-orient: vertical;
       box-orient: vertical;
+      touch-action: none;
+      -ms-touch-action: none;
       @media screen and (max-width: $mobileAlb) {
         font-size: 10px;
       }
