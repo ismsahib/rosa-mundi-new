@@ -171,6 +171,8 @@
       }
     }
     .digestContentText {
+      max-height: 150px;
+      height: max-content;
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis;
