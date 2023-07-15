@@ -72,7 +72,15 @@
   font-size: 128px;
   font-weight: 400;
   display: flex;
-  justify-content: space-between;
+  overflow: hidden;
+  &:hover {
+    text-decoration: underline;
+  }
+  span {
+    white-space: nowrap;
+    display: inline-block;
+    flex: 0;
+  }
   @media screen and (max-width: $tabletAlb) {
     font-size: 96px;
   }

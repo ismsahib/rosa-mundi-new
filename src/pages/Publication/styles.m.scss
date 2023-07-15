@@ -3,24 +3,32 @@
   color: #000;
   font-size: 200px;
   font-weight: 500;
-  margin-bottom: 100px;
+  margin-bottom: 82px;
+  margin-top: -26px;
+  &:hover {
+    text-decoration: underline;
+  }
   @media screen and (max-width: $tabletAlb) {
     font-size: 160px;
-    margin-bottom: 50px;
+    margin-bottom: 36.5px;
+    margin-top: -22.5px;
   }
 
   @media screen and (max-width: $tablet) {
     font-size: 110px;
+    margin-top: -15.5px;
   }
 
   @media screen and (max-width: $mobileAlb) {
     font-size: 70px;
-    margin-bottom: 35px;
+    margin-bottom: 28.5px;
+    margin-top: -9.5px;
   }
 
   @media screen and (max-width: $mobile) {
     font-size: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+    margin-top: -7px;
   }
 }
 .publication {

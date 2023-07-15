@@ -33,7 +33,9 @@ const Sections = () => {
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
         <Template backgroundImage="sections" header={true} footer={true} headerColor={true}>
-          <div className={styles.title}>ROSAMUNDI</div>
+          <Link to="/" className={styles.title}>
+            ROSAMUNDI
+          </Link>
           {loader ? (
             <Loader />
           ) : (

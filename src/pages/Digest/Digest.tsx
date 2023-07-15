@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
@@ -14,6 +14,22 @@ const Digest = () => {
   const [data, setData] = useState<DigestData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
+  const title = useRef<HTMLAnchorElement>(null);
+  const span = useRef<HTMLSpanElement>(null);
+  const [letterSpacing, setLetterSpacing] = useState("");
+
+  useEffect(() => {
+    if (data !== "init") {
+      if (title.current && span.current) {
+        const containerWidth = title.current.offsetWidth;
+        const currentLength = span.current.innerText.length;
+        const currentCharWidth = span.current.offsetWidth / currentLength;
+        const spaceForChar = containerWidth / currentLength;
+        const charWidth = spaceForChar - currentCharWidth + (spaceForChar - currentCharWidth) / currentLength;
+        setLetterSpacing(charWidth + "px");
+      }
+    }
+  }, [data]);
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
@@ -27,6 +43,7 @@ const Digest = () => {
         setData("error");
       }
     })();
+
     return () => clearTimeout(timer);
   }, []);
   return (
@@ -48,13 +65,11 @@ const Digest = () => {
             ))}
           </header>
           <div className={styles.linetop} />
-          <div className={styles.title}>
-            {"ROSAMUNDI".split("").map((ch, i) => (
-              <div key={i} className={styles.ch}>
-                {ch}
-              </div>
-            ))}
-          </div>
+          <Link className={styles.title} ref={title} to="/">
+            <span ref={span} style={{ letterSpacing: letterSpacing }}>
+              ROSAMUNDI
+            </span>
+          </Link>
           <div className={styles.linebot} />
           <div className={styles.digestContent}>
             {loader ? (

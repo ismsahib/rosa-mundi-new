@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
 import { fetchGetPublicationByID } from "@root/api";
@@ -38,7 +38,9 @@ const Publication = () => {
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
         <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
-          <div className={styles.title}>ROSAMUNDI</div>
+          <Link to="/" className={styles.title}>
+            ROSAMUNDI
+          </Link>
           {loader ? <Loader /> : <SectionTemplate type="publication" data={data} />}
         </Template>
       )}

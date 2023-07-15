@@ -6,22 +6,32 @@
   font-family: "Elephant";
   font-style: normal;
   font-weight: 400;
-  margin-bottom: 100px;
+  margin-bottom: 77px;
+  margin-top: -23px;
+  &:hover {
+    text-decoration: underline;
+  }
   @media screen and (max-width: $tabletAlb) {
     font-size: 110px;
+    margin-top: -16px;
+    margin-bottom: 84px;
   }
   @media screen and (max-width: $tablet) {
     font-size: 96px;
-    margin-bottom: 50px;
+    margin-bottom: 36.5px;
+    margin-top: -13.5px;
   }
 
   @media screen and (max-width: $mobileAlb) {
     font-size: 55px;
-    margin-bottom: 25px;
+    margin-bottom: 17px;
+    margin-top: -8px;
   }
 
   @media screen and (max-width: $mobile) {
     font-size: 40px;
+    margin-top: -5.5px;
+    margin-bottom: 19.5px;
   }
 }
 
