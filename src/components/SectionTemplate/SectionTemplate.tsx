@@ -58,7 +58,7 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
             <div className={styles.sectionContentsTitle}>Содержание:</div>
             {(data as SectionData).publications.map((publication) => (
               <a
-                href={`#${publication.id}`}
+                href={`#${publication.slug}`}
                 key={`${publication.id}_sectionContents`}
                 className={styles.sectionContentsItem}
               >
@@ -73,7 +73,7 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
           </div>
           <div className={styles.publicationContainer}>
             {(data as SectionData).publications.map((publication) => (
-              <div key={publication.id} className={styles.publication} id={publication.id}>
+              <div key={publication.id} className={styles.publication} id={publication.slug}>
                 <Link to={`/author/${publication.author.slug}`} className={styles.author}>
                   {`${publication.author.last_name} ${publication.author.first_name}` +
                     (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
