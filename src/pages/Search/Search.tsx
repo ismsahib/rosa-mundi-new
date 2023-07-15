@@ -5,8 +5,8 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import NotFound from "../NotFound/NotFound";
 import { fetchGetSearch } from "@root/api";
-import Error from "@root/components/Error/Error";
 import Loader from "@root/components/Loader/Loader";
 import Slider from "@root/components/Slider/Slider";
 import Template from "@root/components/Template/Template";
@@ -64,30 +64,38 @@ const Search = () => {
     return () => clearTimeout(timer);
   }, [searchValue, checked]);
   return (
-    <Template backgroundImage="search" footer={true} headerColor={false} header={true}>
-      <Title black={false} title="ROSAMUNDI" subtitle="SEA_RCH" />
-      <div className={styles.searchModule}>
-        <div className={styles.searchToggle}>
-          <ToggleButton checked={checked === "author"} id="author" cb={() => handleClickChecked("author")} />
-          <div className={styles.searchVariants}>Автор / Материал</div>
-          <ToggleButton checked={checked === "materials"} id="materials" cb={() => handleClickChecked("materials")} />
-        </div>
-        <div className={styles.searchInput}>
-          <input
-            placeholder="Введите наименование искомого "
-            onChange={searchOnChange}
-            value={searchValue}
-            onFocus={(e) => (e.target.placeholder = "")}
-            onBlur={(e) => (e.target.placeholder = "Введите наименование искомого ")}
-          />
-        </div>
-      </div>
-      <div className={styles.sliderModule}>
-        {loader && <Loader />}
-        {data === "error" && !loader && <Error black={false} />}
-        {data !== "error" && data !== "init" && !loader && !!searchValue && <Slider data={data} />}
-      </div>
-    </Template>
+    <>
+      {data === "error" && <NotFound />}
+      {data !== "error" && data !== "init" && (
+        <Template backgroundImage="search" footer={true} headerColor={false} header={true}>
+          <Title black={false} title="ROSAMUNDI" subtitle="SEA_RCH" />
+          <div className={styles.searchModule}>
+            <div className={styles.searchToggle}>
+              <ToggleButton checked={checked === "author"} id="author" cb={() => handleClickChecked("author")} />
+              <div className={styles.searchVariants}>Автор / Материал</div>
+              <ToggleButton
+                checked={checked === "materials"}
+                id="materials"
+                cb={() => handleClickChecked("materials")}
+              />
+            </div>
+            <div className={styles.searchInput}>
+              <input
+                placeholder="Введите наименование искомого "
+                onChange={searchOnChange}
+                value={searchValue}
+                onFocus={(e) => (e.target.placeholder = "")}
+                onBlur={(e) => (e.target.placeholder = "Введите наименование искомого ")}
+              />
+            </div>
+          </div>
+          <div className={styles.sliderModule}>
+            {loader && <Loader />}
+            {!loader && !!searchValue && <Slider data={data} />}
+          </div>
+        </Template>
+      )}
+    </>
   );
 };
 

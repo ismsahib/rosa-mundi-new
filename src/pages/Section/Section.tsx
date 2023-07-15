@@ -1,15 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import NotFound from "../NotFound/NotFound";
 import { fetchGetSectionByID } from "@root/api";
-import Error from "@root/components/Error/Error";
 import Loader from "@root/components/Loader/Loader";
 import SectionTemplate from "@root/components/SectionTemplate/SectionTemplate";
 import Template from "@root/components/Template/Template";
 import { SectionData } from "@root/types/section";
 
 const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSection }) => {
-  const [data, setData] = useState<SectionData | "loading" | "error">("loading");
+  const [data, setData] = useState<SectionData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
   const { id } = useParams();
@@ -31,16 +31,16 @@ const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSe
     return () => clearTimeout(timer);
   }, [id]);
   return (
-    <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
-      {(data === "loading" || loader) && <Loader />}
-      {data === "error" && !loader && <Error black={true} />}
-      {data !== "error" && data !== "loading" && !loader && typeSection === "tematicPublication" && (
-        <SectionTemplate type="tematicPublication" data={data} />
+    <>
+      {data === "error" && <NotFound />}
+      {data !== "error" && data !== "init" && (
+        <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
+          {loader && <Loader />}
+          {!loader && typeSection === "tematicPublication" && <SectionTemplate type="tematicPublication" data={data} />}
+          {!loader && typeSection === "section" && <SectionTemplate type="section" data={data} />}
+        </Template>
       )}
-      {data !== "error" && data !== "loading" && !loader && typeSection === "section" && (
-        <SectionTemplate type="section" data={data} />
-      )}
-    </Template>
+    </>
   );
 };
 
