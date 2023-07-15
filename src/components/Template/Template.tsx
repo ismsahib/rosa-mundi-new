@@ -17,6 +17,18 @@ interface TemplateProps {
   footer: boolean;
   headerColor?: boolean;
 }
+const getStyle = (imageURLParameter: string) => {
+  if (imageURLParameter === "author") return undefined;
+  else if (imageURLParameter === "publication") return { backgroundColor: "white" };
+  else
+    return {
+      backgroundImage: `url(${imageURLParameter})`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      width: "100%",
+      height: "100%",
+    };
+};
 const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer, headerColor }) => {
   let imageURL = main;
   switch (backgroundImage) {
@@ -45,23 +57,9 @@ const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer
       imageURL = backgroundImage;
       break;
   }
+
   return (
-    <div
-      className={styles.wrapper}
-      style={
-        imageURL !== "author"
-          ? imageURL !== "publication"
-            ? {
-                backgroundImage: `url(${imageURL})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                width: "100%",
-                height: "100%",
-              }
-            : { backgroundColor: "white" }
-          : undefined
-      }
-    >
+    <div className={styles.wrapper} style={getStyle(imageURL)}>
       <div className={styles.content}>
         {header && headerColor !== undefined && <Header black={headerColor} />}
         {children}

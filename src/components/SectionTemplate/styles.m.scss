@@ -113,22 +113,8 @@
       font-weight: 400;
       color: #000;
 
-      @media screen and (max-width: $tablet) {
-        font-size: 48px;
-      }
-      @media screen and (max-width: $mobileAlb) {
-        font-size: 32px;
-      }
-    }
-    .sectionContentsName {
-      font-size: 40px;
-      font-weight: 500;
-      color: #000;
-      @media screen and (max-width: $tablet) {
-        font-size: 36px;
-      }
-      @media screen and (max-width: $mobileAlb) {
-        font-size: 24px;
+      @media screen and (max-width: $mobile) {
+        font-size: 14px;
       }
     }
   }

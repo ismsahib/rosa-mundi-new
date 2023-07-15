@@ -64,9 +64,10 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
               >
                 <div className={styles.sectionContentsAuthor}>
                   {`${publication.author.last_name} ${publication.author.first_name}` +
-                    (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
+                    (publication.author.middle_name ? ` ${publication.author.middle_name}` : "") +
+                    " — " +
+                    publication.name}
                 </div>
-                <div className={styles.sectionContentsName}>{publication.name}</div>
               </a>
             ))}
           </div>
