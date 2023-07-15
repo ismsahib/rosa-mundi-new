@@ -8,18 +8,18 @@ import { SectionData, SectionPaginatedData } from "@root/types/section";
 
 const instance = axios.create({ baseURL: "https://api.rosa-mundi.ru" });
 
-export const fetchGetAuthorByID = async (id: string): Promise<AuthorData> => {
-  const { data } = await instance.get(`/v1/authors/${id}`);
+export const fetchGetAuthorBySlug = async (slug: string): Promise<AuthorData> => {
+  const { data } = await instance.get(`/v1/authors/slug/${slug}`);
   return data;
 };
 
-export const fetchGetPublicationByID = async (id: string): Promise<PublicationData> => {
-  const { data } = await instance.get(`/v1/publications/${id}`);
+export const fetchGetPublicationBySlug = async (slug: string): Promise<PublicationData> => {
+  const { data } = await instance.get(`/v1/publications/slug/${slug}`);
   return data;
 };
 
-export const fetchGetSectionByID = async (id: string): Promise<SectionData> => {
-  const { data } = await instance.get(`/v1/sections/${id}`);
+export const fetchGetSectionBySlug = async (slug: string): Promise<SectionData> => {
+  const { data } = await instance.get(`/v1/sections/slug/${slug}`);
   return data;
 };
 

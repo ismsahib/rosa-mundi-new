@@ -16,11 +16,11 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="/about" element={<About />}></Route>
-      <Route path="/author/:id" element={<Author />}></Route>
+      <Route path="/author/:slug" element={<Author />}></Route>
       <Route path="/sections" element={<Sections />}></Route>
-      <Route path="/publication/:id" element={<Publication />}></Route>
-      <Route path="/section/:id" element={<Section typeSection="section" />}></Route>
-      <Route path="/section/tematic/:id" element={<Section typeSection="tematicPublication" />}></Route>
+      <Route path="/publication/:slug" element={<Publication />}></Route>
+      <Route path="/section/:slug" element={<Section typeSection="section" />}></Route>
+      <Route path="/section/tematic/:slug" element={<Section typeSection="tematicPublication" />}></Route>
       <Route path="/digest" element={<Digest />}></Route>
       <Route path="/search" element={<Search />}></Route>
       <Route path="*" element={<NotFound />}></Route>

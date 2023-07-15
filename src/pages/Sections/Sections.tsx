@@ -51,7 +51,11 @@ const Sections = () => {
                           <div>0</div>
                           <div>{data.size - index}</div>
                         </div>
-                        <Link to={`/section/${section.id}`} className={styles.sectionLink} state={{ type: "section" }}>
+                        <Link
+                          to={`/section/${section.slug}`}
+                          className={styles.sectionLink}
+                          state={{ type: "section" }}
+                        >
                           {section.title ? section.title : ""}
                         </Link>
                         <div className={styles.sectionArrow}>{">"}</div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
-import { fetchGetPublicationByID } from "@root/api";
+import { fetchGetPublicationBySlug } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
 import SectionTemplate from "@root/components/SectionTemplate/SectionTemplate";
 import Template from "@root/components/Template/Template";
@@ -14,17 +14,17 @@ const Publication = () => {
   const [data, setData] = useState<PublicationData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
-  const { id } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setLoader(false);
     }, 1000);
-    if (id) {
+    if (slug) {
       (async () => {
         try {
-          const response = await fetchGetPublicationByID(id);
+          const response = await fetchGetPublicationBySlug(slug);
           setData(response);
         } catch (error) {
           setData("error");
@@ -32,7 +32,7 @@ const Publication = () => {
       })();
     }
     return () => clearTimeout(timer);
-  }, [id]);
+  }, [slug]);
   return (
     <>
       {data === "error" && <NotFound />}

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
-import { fetchGetAuthorByID } from "@root/api";
+import { fetchGetAuthorBySlug } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
 import Template from "@root/components/Template/Template";
-import Title from "@root/components/Title/Title";
 import { AuthorData } from "@root/types/author";
 
 import styles from "./styles.m.scss";
@@ -14,17 +13,17 @@ const Author = () => {
   const [data, setData] = useState<AuthorData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
-  const { id } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setLoader(false);
     }, 1000);
-    if (id) {
+    if (slug) {
       (async () => {
         try {
-          const response = await fetchGetAuthorByID(id);
+          const response = await fetchGetAuthorBySlug(slug);
           setData(response);
         } catch (error) {
           setData("error");
@@ -32,7 +31,7 @@ const Author = () => {
       })();
     }
     return () => clearTimeout(timer);
-  }, [id]);
+  }, [slug]);
   return (
     <>
       {data === "error" && <NotFound />}
@@ -58,7 +57,7 @@ const Author = () => {
                 <div className={styles.linksTitle}>Работы автора:</div>
                 {data.links.map((link) => (
                   <Link
-                    to={link.type === "section" ? `/section/tematic/${link.id}` : `/publication/${link.id}`}
+                    to={link.type === "section" ? `/section/tematic/${link.slug}` : `/publication/${link.slug}`}
                     key={link.id}
                     className={styles.link}
                   >

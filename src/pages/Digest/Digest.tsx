@@ -77,7 +77,7 @@ const Digest = () => {
             ) : (
               data.map((digestItem) => (
                 <div key={digestItem.id}>
-                  <Link to={`/section/tematic/${digestItem.id}`} className={styles.digestItem}>
+                  <Link to={`/section/tematic/${digestItem.slug}`} className={styles.digestItem}>
                     <div
                       className={styles.digestContentText}
                       dangerouslySetInnerHTML={{ __html: digestItem.content }}

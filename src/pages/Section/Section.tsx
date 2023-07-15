@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
-import { fetchGetSectionByID } from "@root/api";
+import { fetchGetSectionBySlug } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
 import SectionTemplate from "@root/components/SectionTemplate/SectionTemplate";
 import Template from "@root/components/Template/Template";
@@ -12,16 +12,16 @@ const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSe
   const [data, setData] = useState<SectionData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
-  const { id } = useParams();
+  const { slug } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setLoader(false);
     }, 1000);
-    if (id) {
+    if (slug) {
       (async () => {
         try {
-          const response = await fetchGetSectionByID(id);
+          const response = await fetchGetSectionBySlug(slug);
           setData(response);
         } catch (error) {
           setData("error");
@@ -29,7 +29,7 @@ const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSe
       })();
     }
     return () => clearTimeout(timer);
-  }, [id]);
+  }, [slug]);
   return (
     <>
       {data === "error" && <NotFound />}
