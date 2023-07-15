@@ -19,7 +19,7 @@ const Main = () => {
             SEA_RCH
           </Link>
           <div className={styles.menuDescription}>
-            The Search tab will help you to find the specific piece of writing, author, or literally collection.
+            The Search tab will help you to find the specific piece of writing, author, or literary collection.
           </div>
         </div>
         <div className={styles.menuItem}>

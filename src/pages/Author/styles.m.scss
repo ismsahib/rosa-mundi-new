@@ -18,9 +18,10 @@
     text-align: center;
     font-size: 96px;
     font-weight: 500;
-    margin-bottom: 35px;
+    margin-bottom: 21.5px;
     @media screen and (max-width: $tablet) {
       font-size: 64px;
+      margin-bottom: 35px;
     }
 
     @media screen and (max-width: $mobileAlb) {
@@ -36,9 +37,10 @@
     text-align: center;
     font-size: 96px;
     font-weight: 500;
-    margin-bottom: 35px;
+    margin-bottom: 21.5px;
     @media screen and (max-width: $tablet) {
       font-size: 64px;
+      margin-bottom: 35px;
     }
 
     @media screen and (max-width: $mobileAlb) {
@@ -112,26 +114,26 @@
     }
 
     .linksTitle {
-      font-size: 96px;
+      font-size: 32px;
       font-weight: 500;
 
       @media screen and (max-width: $tablet) {
-        font-size: 64px;
-      }
-
-      @media screen and (max-width: $mobileAlb) {
-        font-size: 36px;
-      }
-    }
-    .link {
-      font-size: 48px;
-      font-weight: 500;
-      @media screen and (max-width: $tablet) {
-        font-size: 40px;
+        font-size: 24px;
       }
 
       @media screen and (max-width: $mobileAlb) {
         font-size: 16px;
+      }
+    }
+    .link {
+      font-size: 26px;
+      font-weight: 500;
+      @media screen and (max-width: $tablet) {
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: $mobileAlb) {
+        font-size: 14px;
       }
       &:hover {
         text-decoration: underline;

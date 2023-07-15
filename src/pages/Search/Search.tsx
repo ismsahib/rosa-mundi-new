@@ -66,7 +66,7 @@ const Search = () => {
   return (
     <>
       {data === "error" && <NotFound />}
-      {data !== "error" && data !== "init" && (
+      {data !== "error" && (
         <Template backgroundImage="search" footer={true} headerColor={false} header={true}>
           <Title black={false} title="ROSAMUNDI" subtitle="SEA_RCH" />
           <div className={styles.searchModule}>
@@ -91,7 +91,7 @@ const Search = () => {
           </div>
           <div className={styles.sliderModule}>
             {loader && <Loader />}
-            {!loader && !!searchValue && <Slider data={data} />}
+            {!loader && !!searchValue && data !== "init" && <Slider data={data} />}
           </div>
         </Template>
       )}

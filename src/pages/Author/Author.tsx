@@ -38,7 +38,6 @@ const Author = () => {
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
         <Template backgroundImage="author" footer={true} header={true} headerColor={false}>
-          <Title title="ROSAMUNDI" subtitle="AU_teur" black={false} />
           {loader ? (
             <Loader />
           ) : (
