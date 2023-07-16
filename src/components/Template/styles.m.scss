@@ -28,10 +28,7 @@
       align-items: center;
       margin: 0 auto;
       flex-grow: 1;
-      margin-bottom: 100px;
-      @media screen and (max-width: $tabletAlb) {
-        margin-bottom: 50px;
-      }
+      margin-bottom: 50px;
       @media screen and (max-width: $mobileAlb) {
         margin-bottom: 35px;
       }

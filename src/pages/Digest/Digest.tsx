@@ -16,20 +16,25 @@ const Digest = () => {
 
   const title = useRef<HTMLAnchorElement>(null);
   const span = useRef<HTMLSpanElement>(null);
+  const authorContainer = useRef<HTMLDivElement>(null);
+
   const [letterSpacing, setLetterSpacing] = useState("");
+  const [digestContainerWidth, setDigestContainerWidth] = useState(1000);
 
   useEffect(() => {
     if (data !== "init") {
-      if (title.current && span.current) {
+      if (title.current && span.current && authorContainer.current) {
         const containerWidth = title.current.offsetWidth;
         const currentLength = span.current.innerText.length;
         const currentCharWidth = span.current.offsetWidth / currentLength;
         const spaceForChar = containerWidth / currentLength;
         const charWidth = spaceForChar - currentCharWidth + (spaceForChar - currentCharWidth) / currentLength;
         setLetterSpacing(charWidth + "px");
+        setDigestContainerWidth(authorContainer.current.offsetWidth);
       }
     }
   }, [data]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
@@ -43,7 +48,6 @@ const Digest = () => {
         setData("error");
       }
     })();
-
     return () => clearTimeout(timer);
   }, []);
   return (
@@ -71,7 +75,7 @@ const Digest = () => {
             </span>
           </Link>
           <div className={styles.linebot} />
-          <div className={styles.digestContent}>
+          <div className={styles.digestContent} ref={authorContainer}>
             {loader ? (
               <Loader />
             ) : (
@@ -84,18 +88,13 @@ const Digest = () => {
                     />
                     <div className={styles.info}>
                       <div className={styles.author}>
-                        {digestItem.authors.split(", ").length === 1
+                        {digestContainerWidth > 500
+                          ? digestItem.authors.split(", ").length <= 3
+                            ? digestItem.authors
+                            : digestItem.authors.split(", ").slice(0, 3).join(", ") + " и др."
+                          : digestItem.authors.split(", ").length <= 2
                           ? digestItem.authors
-                          : digestItem.authors.split(", ").length <= 3
-                          ? digestItem.authors
-                              .split(", ")
-                              .map((name) => name.split(" ")[1])
-                              .join(", ")
-                          : digestItem.authors
-                              .split(", ")
-                              .map((name) => name.split(" ")[1])
-                              .slice(0, 3)
-                              .join(", ") + " и др."}
+                          : digestItem.authors.split(", ").slice(0, 2).join(", ") + " и др."}
                       </div>
                       <div className={styles.name}>{digestItem.name}</div>
                     </div>
