@@ -1,19 +1,6 @@
 @import "../../styles/vars.scss";
 
 .info {
-  margin-bottom: 65px;
-  @media screen and (max-width: $tabletAlb) {
-    margin-bottom: 50px;
-  }
-
-  @media screen and (max-width: $tablet) {
-    margin-bottom: 35px;
-  }
-
-  @media screen and (max-width: $mobileAlb) {
-    margin-bottom: 30px;
-  }
-
   .lfname {
     text-align: center;
     font-size: 96px;
@@ -83,6 +70,7 @@
     }
     .description {
       width: 50%;
+      text-align: justify;
       font-size: 26px;
       font-weight: 500;
       @media screen and (max-width: $tabletAlb) {
@@ -102,14 +90,9 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 40px;
+    gap: 20px;
     align-self: stretch;
-
     @media screen and (max-width: $tablet) {
-      gap: 25px;
-    }
-
-    @media screen and (max-width: $mobileAlb) {
       gap: 15px;
     }
 

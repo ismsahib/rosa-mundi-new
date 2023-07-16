@@ -16,10 +16,21 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
     <>
       {type === "publication" && (
         <div className={styles.publication}>
-          <Link to={`/author/${(data as PublicationData).author.slug}`} className={styles.author}>
-            {`${(data as PublicationData).author.last_name} ${(data as PublicationData).author.first_name}` +
-              ((data as PublicationData).author.middle_name ? ` ${(data as PublicationData).author.middle_name}` : "")}
-          </Link>
+          {(data as PublicationData).author.is_public ? (
+            <Link to={`/author/${(data as PublicationData).author.slug}`} className={styles.author}>
+              {`${(data as PublicationData).author.last_name} ${(data as PublicationData).author.first_name}` +
+                ((data as PublicationData).author.middle_name
+                  ? ` ${(data as PublicationData).author.middle_name}`
+                  : "")}
+            </Link>
+          ) : (
+            <div className={styles.author}>
+              {`${(data as PublicationData).author.last_name} ${(data as PublicationData).author.first_name}` +
+                ((data as PublicationData).author.middle_name
+                  ? ` ${(data as PublicationData).author.middle_name}`
+                  : "")}
+            </div>
+          )}
           <div className={styles.contentName}>{(data as PublicationData).name}</div>
           {!!(data as PublicationData).content && (
             <div
@@ -35,10 +46,17 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
           <div className={styles.publicationContainer}>
             {(data as SectionData).publications.map((publication) => (
               <div key={publication.id} className={styles.publication}>
-                <Link to={`/author/${publication.author.slug}`} className={styles.author}>
-                  {`${publication.author.last_name} ${publication.author.first_name}` +
-                    (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
-                </Link>
+                {publication.author.is_public ? (
+                  <Link to={`/author/${publication.author.slug}`} className={styles.author}>
+                    {`${publication.author.last_name} ${publication.author.first_name}` +
+                      (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
+                  </Link>
+                ) : (
+                  <div className={styles.author}>
+                    {`${publication.author.last_name} ${publication.author.first_name}` +
+                      (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
+                  </div>
+                )}
                 <div className={styles.contentName}>{publication.name}</div>
                 {!!publication.content && (
                   <div
@@ -74,10 +92,17 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
           <div className={styles.publicationContainer}>
             {(data as SectionData).publications.map((publication) => (
               <div key={publication.id} className={styles.publication} id={publication.slug}>
-                <Link to={`/author/${publication.author.slug}`} className={styles.author}>
-                  {`${publication.author.last_name} ${publication.author.first_name}` +
-                    (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
-                </Link>
+                {publication.author.is_public ? (
+                  <Link to={`/author/${publication.author.slug}`} className={styles.author}>
+                    {`${publication.author.last_name} ${publication.author.first_name}` +
+                      (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
+                  </Link>
+                ) : (
+                  <div className={styles.author}>
+                    {`${publication.author.last_name} ${publication.author.first_name}` +
+                      (publication.author.middle_name ? ` ${publication.author.middle_name}` : "")}
+                  </div>
+                )}
                 <div className={styles.contentName}>{publication.name}</div>
                 {!!publication.content && (
                   <div

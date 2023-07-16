@@ -22,4 +22,5 @@ export type AuthorCompactData = {
   last_name: string;
   first_name: string;
   middle_name?: string;
+  is_public: boolean;
 };

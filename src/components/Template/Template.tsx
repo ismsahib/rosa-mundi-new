@@ -62,8 +62,14 @@ const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer
     <div className={styles.wrapper} style={getStyle(imageURL)}>
       <div className={styles.content}>
         {header && headerColor !== undefined && <Header black={headerColor} />}
-        {children}
-        {footer && <Footer />}
+        <div className={styles.children} style={footer ? undefined : { marginBottom: 0 }}>
+          {children}
+        </div>
+        {footer && (
+          <div className={styles.footer}>
+            <Footer />
+          </div>
+        )}
       </div>
     </div>
   );

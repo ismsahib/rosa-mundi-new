@@ -95,6 +95,7 @@
 }
 
 .footer {
+  flex-shrink: 0;
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -154,6 +155,7 @@
 }
 
 .digestContent {
+  flex-grow: 1;
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -214,14 +216,10 @@
         height: 40px;
       }
       .author {
-        max-width: 40%;
         font-family: "Roboto";
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
         @media screen and (max-width: $mobileAlb) {
           font-size: 10px;
         }

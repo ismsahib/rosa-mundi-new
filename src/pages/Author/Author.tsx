@@ -53,18 +53,20 @@ const Author = () => {
                   {!!data.bio && <div className={styles.description}>{data.bio}</div>}
                 </div>
               )}
-              <div className={styles.links}>
-                <div className={styles.linksTitle}>Работы автора:</div>
-                {data.links.map((link) => (
-                  <Link
-                    to={link.type === "section" ? `/section/tematic/${link.slug}` : `/publication/${link.slug}`}
-                    key={link.id}
-                    className={styles.link}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
+              {data.links.length > 0 && (
+                <div className={styles.links}>
+                  <div className={styles.linksTitle}>Работы автора:</div>
+                  {data.links.map((link) => (
+                    <Link
+                      to={link.type === "section" ? `/section/tematic/${link.slug}` : `/publication/${link.slug}`}
+                      key={link.id}
+                      className={styles.link}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </Template>

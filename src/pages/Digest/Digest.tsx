@@ -83,7 +83,20 @@ const Digest = () => {
                       dangerouslySetInnerHTML={{ __html: digestItem.content }}
                     />
                     <div className={styles.info}>
-                      <div className={styles.author}>{digestItem.authors}</div>
+                      <div className={styles.author}>
+                        {digestItem.authors.split(", ").length === 1
+                          ? digestItem.authors
+                          : digestItem.authors.split(", ").length <= 3
+                          ? digestItem.authors
+                              .split(", ")
+                              .map((name) => name.split(" ")[1])
+                              .join(", ")
+                          : digestItem.authors
+                              .split(", ")
+                              .map((name) => name.split(" ")[1])
+                              .slice(0, 3)
+                              .join(", ") + " и др."}
+                      </div>
                       <div className={styles.name}>{digestItem.name}</div>
                     </div>
                   </Link>

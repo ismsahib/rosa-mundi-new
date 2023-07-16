@@ -5,47 +5,32 @@
   color: #000;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 
-  @media screen and (max-width: $mobileAlb) {
-    gap: 15px;
+  @media screen and (max-width: $mobile) {
+    gap: 10px;
   }
 
   .author {
     color: #000;
     font-size: 32px;
     font-weight: 600;
-    &:hover {
-      text-decoration: underline;
-    }
 
-    @media screen and (max-width: $tablet) {
-      font-size: 48px;
-    }
-
-    @media screen and (max-width: $mobileAlb) {
-      font-size: 32px;
+    @media screen and (max-width: $mobile) {
+      font-size: 20px;
     }
   }
   .contentName {
     font-size: 24px;
     font-weight: 600;
 
-    @media screen and (max-width: $tablet) {
-      font-size: 36px;
-    }
-
-    @media screen and (max-width: $mobileAlb) {
-      font-size: 24px;
+    @media screen and (max-width: $mobile) {
+      font-size: 14px;
     }
   }
   .content {
     font-size: 24px;
     font-weight: 400;
-
-    @media screen and (max-width: $mobileAlb) {
-      font-size: 16px;
-    }
 
     @media screen and (max-width: $mobile) {
       font-size: 14px;
@@ -63,7 +48,7 @@
   @media screen and (max-width: $tablet) {
     gap: 50px;
   }
-  @media screen and (max-width: $mobileAlb) {
+  @media screen and (max-width: $mobile) {
     gap: 25px;
   }
 }
@@ -80,20 +65,12 @@
     margin-bottom: 50px;
   }
 
-  @media screen and (max-width: $mobileAlb) {
-    margin-bottom: 15px;
-  }
-
   .sectionContentsTitle {
     font-size: 32px;
     font-weight: 500;
 
-    @media screen and (max-width: $tablet) {
-      font-size: 64px;
-    }
-
-    @media screen and (max-width: $mobileAlb) {
-      font-size: 36px;
+    @media screen and (max-width: $mobile) {
+      font-size: 20px;
     }
   }
   .sectionContentsItem {
@@ -118,4 +95,7 @@
       }
     }
   }
+}
+a:hover {
+  text-decoration: underline;
 }
