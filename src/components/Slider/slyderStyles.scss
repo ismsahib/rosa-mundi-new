@@ -85,3 +85,13 @@ svg {
 .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
   left: 22%;
 }
+
+.swiper-slide.swiper-slide-visible.swiper-slide-active.swiper_slidercontainer{
+  z-index: 10!important;
+}
+.swiper-slide.swiper-slide-visible.swiper-slide-prev.swiper_slidercontainer{
+  z-index: 5!important;
+}
+.swiper-slide.swiper-slide-visible.swiper-slide-next.swiper_slidercontainer{
+  z-index: 4!important;
+}
