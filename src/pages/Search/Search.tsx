@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import NotFound from "../NotFound/NotFound";
 import { fetchGetSearch } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import PreLoader from "@root/components/PreLoader/PreLoader";
 import Slider from "@root/components/Slider/Slider";
 import Template from "@root/components/Template/Template";
 import Title from "@root/components/Title/Title";
@@ -65,6 +66,7 @@ const Search = () => {
   }, [searchValue, checked]);
   return (
     <>
+      <PreLoader />
       {data === "error" && <NotFound />}
       {data !== "error" && (
         <Template backgroundImage="search" footer={true} headerColor={false} header={true}>

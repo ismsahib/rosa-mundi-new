@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import { fetchGetDigest } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import PreLoader from "@root/components/PreLoader/PreLoader";
 import Template from "@root/components/Template/Template";
 import { DigestData } from "@root/types/digest";
 
@@ -52,6 +53,7 @@ const Digest = () => {
   }, []);
   return (
     <>
+      <PreLoader />
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
         <Template backgroundImage="digest" footer={false} header={false}>

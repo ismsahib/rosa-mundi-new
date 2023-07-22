@@ -10,7 +10,7 @@ import styles from "./styles.m.scss";
 const Main = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
   return (
     <>
       <PreLoader />

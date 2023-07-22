@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import { fetchGetSections } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import PreLoader from "@root/components/PreLoader/PreLoader";
 import Template from "@root/components/Template/Template";
 import { SectionPaginatedData } from "@root/types/section";
 
@@ -30,6 +31,7 @@ const Sections = () => {
   }, []);
   return (
     <>
+      <PreLoader backgroundColorWhite={true} />
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
         <Template backgroundImage="sections" header={true} footer={true} headerColor={true}>
