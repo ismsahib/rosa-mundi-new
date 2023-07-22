@@ -47,3 +47,12 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #fff;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+html,
+body {
+  min-height: 100vh;
+}
+.main-container {
+  min-height: 100vh;
+  height: 100%;
+}

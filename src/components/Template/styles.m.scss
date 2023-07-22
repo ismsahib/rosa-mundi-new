@@ -7,14 +7,16 @@
   background-size: cover;
   padding: 30px 20px;
   background-color: #000;
+  display: flex;
+  flex-direction: column;
   @media screen and (max-width: $mobileAlb) {
     padding: 15px 20px;
   }
 
   .content {
+    flex: 1 0 auto;
     max-width: 1216px;
     width: 100%;
-    min-height: 100vh;
     height: 100%;
     display: flex;
     flex-direction: column;
