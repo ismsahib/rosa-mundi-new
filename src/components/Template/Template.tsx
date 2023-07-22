@@ -25,6 +25,7 @@ const getStyle = (imageURLParameter: string) => {
       backgroundImage: `url(${imageURLParameter})`,
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
+      backgroundColor: "black",
       width: "100%",
       height: "100%",
     };
