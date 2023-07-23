@@ -58,7 +58,7 @@ const Author = () => {
                   <div className={styles.linksTitle}>Работы автора:</div>
                   {data.links.map((link) => (
                     <Link
-                      to={link.type === "section" ? `/section/tematic/${link.slug}` : `/publication/${link.slug}`}
+                      to={link.type === "section" ? `/section/thematic/${link.slug}` : `/publication/${link.slug}`}
                       key={link.id}
                       className={styles.link}
                     >

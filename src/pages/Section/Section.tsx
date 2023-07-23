@@ -8,7 +8,7 @@ import SectionTemplate from "@root/components/SectionTemplate/SectionTemplate";
 import Template from "@root/components/Template/Template";
 import { SectionData } from "@root/types/section";
 
-const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSection }) => {
+const Section: FC<{ typeSection: "thematicPublication" | "section" }> = ({ typeSection }) => {
   const [data, setData] = useState<SectionData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
@@ -36,7 +36,9 @@ const Section: FC<{ typeSection: "tematicPublication" | "section" }> = ({ typeSe
       {data !== "error" && data !== "init" && (
         <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
           {loader && <Loader />}
-          {!loader && typeSection === "tematicPublication" && <SectionTemplate type="tematicPublication" data={data} />}
+          {!loader && typeSection === "thematicPublication" && (
+            <SectionTemplate type="thematicPublication" data={data} />
+          )}
           {!loader && typeSection === "section" && <SectionTemplate type="section" data={data} />}
         </Template>
       )}

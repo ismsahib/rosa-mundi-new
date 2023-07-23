@@ -20,7 +20,7 @@ const App = () => {
       <Route path="/sections" element={<Sections />}></Route>
       <Route path="/publication/:slug" element={<Publication />}></Route>
       <Route path="/section/:slug" element={<Section typeSection="section" />}></Route>
-      <Route path="/section/tematic/:slug" element={<Section typeSection="tematicPublication" />}></Route>
+      <Route path="/section/thematic/:slug" element={<Section typeSection="thematicPublication" />}></Route>
       <Route path="/digest" element={<Digest />}></Route>
       <Route path="/search" element={<Search />}></Route>
       <Route path="*" element={<NotFound />}></Route>

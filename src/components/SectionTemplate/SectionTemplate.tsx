@@ -8,7 +8,7 @@ import { SectionData } from "@root/types/section";
 import styles from "./styles.m.scss";
 
 interface SectionTemplate {
-  type: "publication" | "section" | "tematicPublication";
+  type: "publication" | "section" | "thematicPublication";
   data: PublicationData | SectionData;
 }
 const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
@@ -40,7 +40,7 @@ const SectionTemplate: FC<SectionTemplate> = ({ data, type }) => {
           )}
         </div>
       )}
-      {type === "tematicPublication" && (
+      {type === "thematicPublication" && (
         <>
           <Title title="ROSAMUNDI" subtitle={(data as SectionData).name as string} black={true} />
           <div className={styles.publicationContainer}>
