@@ -11,7 +11,7 @@ const PreLoader: FC<{ backgroundColorWhite?: boolean }> = ({ backgroundColorWhit
     const onPageLoad = () => {
       return setTimeout(() => {
         if (ref.current) ref.current.style.display = "none";
-      }, 1600);
+      }, 1000);
     };
 
     if (document.readyState === "complete") {
