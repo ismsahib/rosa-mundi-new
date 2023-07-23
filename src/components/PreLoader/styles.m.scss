@@ -9,9 +9,9 @@
   width: 100vw;
   z-index: 1000;
   opacity: 0;
-  animation: opacity 2s ease;
+  animation: opacity 1s ease;
   @media screen and (max-width: $mobile) {
-    animation: opacity-mobile 2s ease;
+    animation: opacity-mobile 1s ease;
   }
 }
 
@@ -19,6 +19,7 @@
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
