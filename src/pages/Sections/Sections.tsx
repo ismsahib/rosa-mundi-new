@@ -21,7 +21,7 @@ const Sections = () => {
     }, 1000);
     (async () => {
       try {
-        const response = await fetchGetSections(1, 5);
+        const response = await fetchGetSections(1, 100);
         setData(response);
       } catch (error) {
         setData("error");
