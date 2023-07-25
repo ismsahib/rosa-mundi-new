@@ -66,7 +66,9 @@ const About = () => {
               https://vk.com/rosamundi
             </a>
           </div>
-          (и прочими доступными способами)
+        </p>
+        <p className={styles.paragraph}>
+          Редакция rosamundi оставляет за собой право вносить изменения в предоставленные материалы.
         </p>
       </Template>
     </>
