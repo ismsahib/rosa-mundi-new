@@ -54,10 +54,10 @@ const Digest = () => {
   }, []);
   return (
     <>
-      <PreLoader />
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
         <>
+          <PreLoader />
           <MyHelmet
             description="Ознакомьтесь со свежими материалами, выходящими на платформе rosamundi, в разделе дайджеста."
             image="https://rosa-mundi.ru/og.jpg"

@@ -41,7 +41,7 @@ const Author = () => {
           <MyHelmet
             description={data.bio ? data.bio : data.last_name}
             image={data.photo_link ? data.photo_link : "https://rosa-mundi.ru/og.jpg"}
-            title={`ROSAMUNDI | ${data.last_name}`}
+            title={`ROSAMUNDI | ${data.last_name} ${data.first_name}`}
           />
           <Template backgroundImage="author" footer={true} header={true} headerColor={false}>
             {loader ? (
