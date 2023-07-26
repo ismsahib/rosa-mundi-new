@@ -4,6 +4,7 @@ export type SectionData = {
   id: string;
   slug: string;
   name: string;
+  is_thematic: boolean;
   photo_link?: string;
   publications: PublicationData[];
 };

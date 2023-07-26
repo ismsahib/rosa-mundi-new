@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import { fetchGetPublicationBySlug } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import MyHelmet from "@root/components/MyHelmet/MyHelmet";
 import SectionTemplate from "@root/components/SectionTemplate/SectionTemplate";
 import Template from "@root/components/Template/Template";
 import { PublicationData } from "@root/types/publication";
@@ -37,12 +38,19 @@ const Publication = () => {
     <>
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
-        <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
-          <Link to="/" className={styles.title}>
-            ROSAMUNDI
-          </Link>
-          {loader ? <Loader /> : <SectionTemplate type="publication" data={data} />}
-        </Template>
+        <>
+          <MyHelmet
+            description={`${data.name} — материал, опубликованный автором rosamundi.`}
+            image="https://rosa-mundi.ru/og.jpg"
+            title={`ROSAMUNDI | ${data.name}`}
+          />
+          <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
+            <Link to="/" className={styles.title}>
+              ROSAMUNDI
+            </Link>
+            {loader ? <Loader /> : <SectionTemplate type="publication" data={data} />}
+          </Template>
+        </>
       )}
     </>
   );

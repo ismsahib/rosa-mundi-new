@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import { fetchGetDigest } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import MyHelmet from "@root/components/MyHelmet/MyHelmet";
 import PreLoader from "@root/components/PreLoader/PreLoader";
 import Template from "@root/components/Template/Template";
 import { DigestData } from "@root/types/digest";
@@ -56,67 +57,74 @@ const Digest = () => {
       <PreLoader />
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
-        <Template backgroundImage="digest" footer={false} header={false}>
-          <header className={styles.header}>
-            {menuItems.map((item) => (
-              <div key={item.name} className={styles.headerItem}>
-                {item.name === "ГЛАВНАЯ" || item.name === "СЕКЦИИ" || item.name === "ПОИСК" ? (
-                  <Link to={item.href}>{item.name}</Link>
-                ) : (
-                  <a href={item.href} target="_blank" rel="noreferrer">
-                    {item.name}
-                  </a>
-                )}
-              </div>
-            ))}
-          </header>
-          <div className={styles.linetop} />
-          <Link className={styles.title} ref={title} to="/">
-            <span ref={span} style={{ letterSpacing: letterSpacing }}>
-              ROSAMUNDI
-            </span>
-          </Link>
-          <div className={styles.linebot} />
-          <div className={styles.digestContent} ref={authorContainer}>
-            {loader ? (
-              <Loader />
-            ) : (
-              data.map((digestItem) => (
-                <div key={digestItem.id}>
-                  <Link to={`/section/thematic/${digestItem.slug}`} className={styles.digestItem}>
-                    <div
-                      className={styles.digestContentText}
-                      dangerouslySetInnerHTML={{ __html: digestItem.content }}
-                    />
-                    <div className={styles.info}>
-                      <div className={styles.author}>
-                        {digestContainerWidth > 500
-                          ? digestItem.authors.split(", ").length <= 3
-                            ? digestItem.authors
-                            : digestItem.authors.split(", ").slice(0, 3).join(", ") + " и др."
-                          : digestItem.authors.split(", ").length <= 2
-                          ? digestItem.authors
-                          : digestItem.authors.split(", ").slice(0, 2).join(", ") + " и др."}
-                      </div>
-                      <div className={styles.name}>{digestItem.name}</div>
-                    </div>
-                  </Link>
+        <>
+          <MyHelmet
+            description="Ознакомьтесь со свежими материалами, выходящими на платформе rosamundi, в разделе дайджеста."
+            image="https://rosa-mundi.ru/og.jpg"
+            title="ROSAMUNDI | Дайджест"
+          />
+          <Template backgroundImage="digest" footer={false} header={false}>
+            <header className={styles.header}>
+              {menuItems.map((item) => (
+                <div key={item.name} className={styles.headerItem}>
+                  {item.name === "ГЛАВНАЯ" || item.name === "СЕКЦИИ" || item.name === "ПОИСК" ? (
+                    <Link to={item.href}>{item.name}</Link>
+                  ) : (
+                    <a href={item.href} target="_blank" rel="noreferrer">
+                      {item.name}
+                    </a>
+                  )}
                 </div>
-              ))
-            )}
-          </div>
-          <div className={styles.linebottom} />
-          <footer className={styles.footer}>
-            <div className={styles.footerLink}>
-              <a href="mailto:rosa.mundi.redaction@gmail.com" target="_blank" rel="noreferrer">
-                contact us any line
-              </a>
+              ))}
+            </header>
+            <div className={styles.linetop} />
+            <Link className={styles.title} ref={title} to="/">
+              <span ref={span} style={{ letterSpacing: letterSpacing }}>
+                ROSAMUNDI
+              </span>
+            </Link>
+            <div className={styles.linebot} />
+            <div className={styles.digestContent} ref={authorContainer}>
+              {loader ? (
+                <Loader />
+              ) : (
+                data.map((digestItem) => (
+                  <div key={digestItem.id}>
+                    <Link to={`/section/${digestItem.slug}`} className={styles.digestItem}>
+                      <div
+                        className={styles.digestContentText}
+                        dangerouslySetInnerHTML={{ __html: digestItem.content }}
+                      />
+                      <div className={styles.info}>
+                        <div className={styles.author}>
+                          {digestContainerWidth > 500
+                            ? digestItem.authors.split(", ").length <= 3
+                              ? digestItem.authors
+                              : digestItem.authors.split(", ").slice(0, 3).join(", ") + " и др."
+                            : digestItem.authors.split(", ").length <= 2
+                            ? digestItem.authors
+                            : digestItem.authors.split(", ").slice(0, 2).join(", ") + " и др."}
+                        </div>
+                        <div className={styles.name}>{digestItem.name}</div>
+                      </div>
+                    </Link>
+                  </div>
+                ))
+              )}
             </div>
-            <div className={styles.footerDescription}>
-              если вы считаете, что ваша подборка должна быть опубликована редакцией: <Link to="/about">о нас</Link>
-            </div>
-          </footer>
-        </Template>
+            <div className={styles.linebottom} />
+            <footer className={styles.footer}>
+              <div className={styles.footerLink}>
+                <a href="mailto:rosa.mundi.redaction@gmail.com" target="_blank" rel="noreferrer">
+                  contact us any line
+                </a>
+              </div>
+              <div className={styles.footerDescription}>
+                если вы считаете, что ваша подборка должна быть опубликована редакцией: <Link to="/about">о нас</Link>
+              </div>
+            </footer>
+          </Template>
+        </>
       )}
     </>
   );

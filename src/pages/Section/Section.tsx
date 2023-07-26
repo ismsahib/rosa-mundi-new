@@ -1,14 +1,15 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import NotFound from "../NotFound/NotFound";
 import { fetchGetSectionBySlug } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import MyHelmet from "@root/components/MyHelmet/MyHelmet";
 import SectionTemplate from "@root/components/SectionTemplate/SectionTemplate";
 import Template from "@root/components/Template/Template";
 import { SectionData } from "@root/types/section";
 
-const Section: FC<{ typeSection: "thematicPublication" | "section" }> = ({ typeSection }) => {
+const Section = () => {
   const [data, setData] = useState<SectionData | "init" | "error">("init");
   const [loader, setLoader] = useState(true);
 
@@ -34,13 +35,21 @@ const Section: FC<{ typeSection: "thematicPublication" | "section" }> = ({ typeS
     <>
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
-        <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
-          {loader && <Loader />}
-          {!loader && typeSection === "thematicPublication" && (
-            <SectionTemplate type="thematicPublication" data={data} />
-          )}
-          {!loader && typeSection === "section" && <SectionTemplate type="section" data={data} />}
-        </Template>
+        <>
+          <MyHelmet
+            title={`ROSAMUNDI | ${data.name}`}
+            description={`${data.name} — ваш персональный вход в мир поэзии, опубликованной rosamundi.`}
+            image="https://rosa-mundi.ru/og.jpg"
+          />
+          <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
+            {loader && <Loader />}
+            {!loader && data.is_thematic ? (
+              <SectionTemplate type="thematicPublication" data={data} />
+            ) : (
+              <SectionTemplate type="section" data={data} />
+            )}
+          </Template>
+        </>
       )}
     </>
   );

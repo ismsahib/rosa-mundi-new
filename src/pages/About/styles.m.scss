@@ -1,17 +1,26 @@
 @import "../../styles/vars.scss";
-
-.paragraph {
-  font-size: 24px;
-  font-weight: 400;
+.paragraphContainer {
   width: 100%;
-  div {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (max-width: $mobileAlb) {
+    gap: 20px;
+  }
+  .paragraph {
+    font-size: 24px;
+    font-weight: 400;
     width: 100%;
-  }
-  @media screen and (max-width: $mobile) {
-    font-size: 13px;
-  }
-}
 
-.bold {
-  font-weight: bold;
+    div {
+      width: 100%;
+    }
+    @media screen and (max-width: $mobile) {
+      font-size: 13px;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
+  }
 }

@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import { fetchGetAuthorBySlug } from "@root/api";
 import Loader from "@root/components/Loader/Loader";
+import MyHelmet from "@root/components/MyHelmet/MyHelmet";
 import Template from "@root/components/Template/Template";
 import { AuthorData } from "@root/types/author";
 
@@ -36,40 +37,47 @@ const Author = () => {
     <>
       {data === "error" && <NotFound />}
       {data !== "error" && data !== "init" && (
-        <Template backgroundImage="author" footer={true} header={true} headerColor={false}>
-          {loader ? (
-            <Loader />
-          ) : (
-            <div className={styles.info}>
-              <div className={styles.lfname}>{data.last_name + " " + data.first_name}</div>
-              {!!data.middle_name && <div className={styles.mname}>{data.middle_name}</div>}
-              {(!!data.bio || !!data.photo_link) && (
-                <div className={styles.bio}>
-                  {!!data.photo_link && (
-                    <div className={styles.photo}>
-                      <img src={data.photo_link} alt={`${data.first_name} ${data.last_name}`} />
-                    </div>
-                  )}
-                  {!!data.bio && <div className={styles.description}>{data.bio}</div>}
-                </div>
-              )}
-              {data.links.length > 0 && (
-                <div className={styles.links}>
-                  <div className={styles.linksTitle}>Работы автора:</div>
-                  {data.links.map((link) => (
-                    <Link
-                      to={link.type === "section" ? `/section/thematic/${link.slug}` : `/publication/${link.slug}`}
-                      key={link.id}
-                      className={styles.link}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </Template>
+        <>
+          <MyHelmet
+            description={data.bio ? data.bio : data.last_name}
+            image={data.photo_link ? data.photo_link : "https://rosa-mundi.ru/og.jpg"}
+            title={`ROSAMUNDI | ${data.last_name}`}
+          />
+          <Template backgroundImage="author" footer={true} header={true} headerColor={false}>
+            {loader ? (
+              <Loader />
+            ) : (
+              <div className={styles.info}>
+                <div className={styles.lfname}>{data.last_name + " " + data.first_name}</div>
+                {!!data.middle_name && <div className={styles.mname}>{data.middle_name}</div>}
+                {(!!data.bio || !!data.photo_link) && (
+                  <div className={styles.bio}>
+                    {!!data.photo_link && (
+                      <div className={styles.photo}>
+                        <img src={data.photo_link} alt={`${data.first_name} ${data.last_name}`} />
+                      </div>
+                    )}
+                    {!!data.bio && <div className={styles.description}>{data.bio}</div>}
+                  </div>
+                )}
+                {data.links.length > 0 && (
+                  <div className={styles.links}>
+                    <div className={styles.linksTitle}>Работы автора:</div>
+                    {data.links.map((link) => (
+                      <Link
+                        to={link.type === "section" ? `/section/${link.slug}` : `/publication/${link.slug}`}
+                        key={link.id}
+                        className={styles.link}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </Template>
+        </>
       )}
     </>
   );

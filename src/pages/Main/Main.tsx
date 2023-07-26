@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import MyHelmet from "@root/components/MyHelmet/MyHelmet";
 import PreLoader from "@root/components/PreLoader/PreLoader";
 import Template from "@root/components/Template/Template";
 import Title from "@root/components/Title/Title";
@@ -14,6 +15,11 @@ const Main = () => {
   return (
     <>
       <PreLoader />
+      <MyHelmet
+        title="ROSAMUNDI"
+        description="Rosamundi — поэтический проект, вдохновленный философией Д. Андреева."
+        image="https://rosa-mundi.ru/og.jpg"
+      />
       <Template backgroundImage="main" footer={true} header={true} headerColor={false}>
         <Title title="ROSAMUNDI" subtitle="ГЛАВНАЯ" black={false} />
         <div className={styles.menuContainer}>
