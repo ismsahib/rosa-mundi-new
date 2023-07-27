@@ -42,11 +42,11 @@ const Section = () => {
             image="https://rosa-mundi.ru/og.jpg"
           />
           <Template backgroundImage={"publication"} header={true} footer={true} headerColor={true}>
-            {loader && <Loader />}
-            {!loader && data.is_thematic ? (
-              <SectionTemplate type="thematicPublication" data={data} />
+            {loader ? <Loader /> :
+             data.publications.length <= 1  ? (
+              <SectionTemplate type="noContents" data={data} />
             ) : (
-              <SectionTemplate type="section" data={data} />
+              <SectionTemplate type="Contents" data={data} />
             )}
           </Template>
         </>
