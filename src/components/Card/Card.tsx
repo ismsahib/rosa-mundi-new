@@ -17,7 +17,7 @@ const Card: FC<{ data: SearchDataObject }> = ({ data }) => {
         <div className={styles.name}>{data.name}</div>
         {!!data.content && (
           <div
-            dangerouslySetInnerHTML={{ __html: data.content }}
+            dangerouslySetInnerHTML={{ __html: data.content.replaceAll("<br>", "") }}
             className={data.photo_link ? styles.content : styles.publication}
           />
         )}

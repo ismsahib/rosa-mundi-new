@@ -67,7 +67,9 @@ const About = () => {
           </div>
           <div className={styles.paragraph}>
             <div className={styles.bold}>Предложить свою рукопись:</div>
-            <div>rosa.mundi.redaction@gmail.com</div>
+            <div>
+              <a href="mailto:rosa.mundi.redaction@gmail.com">rosa.mundi.redaction@gmail.com</a>
+            </div>
             <div>
               <a href="https://vk.com/rosamundi" target="_blank" rel="noreferrer">
                 https://vk.com/rosamundi
