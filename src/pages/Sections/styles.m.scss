@@ -1,9 +1,9 @@
 @import "../../styles/vars.scss";
 .title {
-  color: #000;
+  color: #ffffff;
   text-align: center;
   font-size: 160px;
-  font-family: "Elephant";
+  font-family: "Abril Fatface";
   font-style: normal;
   font-weight: 400;
   margin-bottom: 77px;
@@ -36,7 +36,7 @@
 }
 
 .sectionsContainer {
-  color: #000;
+  color: #ffffff;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -58,13 +58,13 @@
     width: 100%;
     @media screen and (max-width: $mobile) {
       padding: 10px 15px;
-      border: 3px solid #000;
+      border: 3px solid #ffffff;
       background: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(12.5px);
     }
     .sectionItem {
       width: 100%;
-      border-top: 5px solid #000;
+      border-top: 5px solid #ffffff;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -73,7 +73,7 @@
         border-top: none;
       }
       .sectionNumber {
-        color: #000;
+        color: #ffffff;
         text-align: center;
         font-size: 32px;
         font-family: "Geostar Fill";
@@ -87,9 +87,9 @@
       }
       .sectionLink {
         text-align: center;
-        color: #000;
+        color: #ffffff;
         font-size: 80px;
-        font-family: "Elephant";
+        font-family: "Abril Fatface", serif;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -113,7 +113,7 @@
         }
       }
       .sectionArrow {
-        color: #000;
+        color: #ffffff;
         font-size: 80px;
         font-family: "Geostar Fill";
         font-style: normal;
