@@ -41,7 +41,7 @@ const Sections = () => {
             image="https://rosa-mundi.ru/og.jpg"
             title="ROSAMUNDI | Секции"
           />
-          <Template backgroundImage="sections" header={true} footer={true} headerColor={true}>
+          <Template backgroundImage="sections" header={true} footer={true} headerColor={false}>
             <Link to="/" className={styles.title}>
               ROSAMUNDI
             </Link>
