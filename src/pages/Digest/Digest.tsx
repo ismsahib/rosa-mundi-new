@@ -93,7 +93,12 @@ const Digest = () => {
                     <Link to={`/section/${digestItem.slug}`} className={styles.digestItem}>
                       <div
                         className={styles.digestContentText}
-                        dangerouslySetInnerHTML={{ __html: digestItem.content }}
+                        dangerouslySetInnerHTML={{
+                          __html: digestItem.content
+                            .split("<br /><br>")
+                            .filter((item) => item.trim())
+                            .join("<br />"),
+                        }}
                       />
                       <div className={styles.info}>
                         <div className={styles.author}>

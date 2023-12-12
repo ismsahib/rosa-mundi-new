@@ -190,6 +190,11 @@
       }
     }
     .digestContentText {
+      img {
+        width: 0;
+        height: 0;
+      }
+      background-color: black;
       -ms-text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis;
