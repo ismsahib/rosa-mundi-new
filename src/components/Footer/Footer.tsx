@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import gmail from "@assets/images/gmail.png";
-import gmail_hover from "@assets/images/gmail_hover.png";
-import logo from "@assets/images/logo.png";
-import logo_hover from "@assets/images/logo_hover.png";
-import tg from "@assets/images/tg.png";
-import tg_hover from "@assets/images/tg_hover.png";
-import vk from "@assets/images/vk.png";
-import vk_hover from "@assets/images/vk_hover.png";
-import youtube from "@assets/images/youtube.png";
-import youtube_hover from "@assets/images/youtube_hover.png";
+import { Icon } from "../Icon/Icon";
 
 import styles from "./styles.m.scss";
 
@@ -23,32 +14,32 @@ const FOOTER_CONTENT: {
   {
     iconName: "youtube",
     href: "https://www.youtube.com/@ROSA_MUNDI_REDACTION",
-    image: youtube,
-    image_hover: youtube_hover,
+    image: "youtube",
+    image_hover: "youtube_hover",
   },
   {
     iconName: "gmail",
     href: "mailto:rosa.mundi.redaction@gmail.com",
-    image: gmail,
-    image_hover: gmail_hover,
+    image: "gmail",
+    image_hover: "gmail_hover",
   },
   {
     iconName: "logo",
     href: "/",
-    image: logo,
-    image_hover: logo_hover,
+    image: "logo",
+    image_hover: "logo_hover",
   },
   {
     iconName: "vk",
     href: "https://vk.com/rosamundi",
-    image: vk,
-    image_hover: vk_hover,
+    image: "vk",
+    image_hover: "vk_hover",
   },
   {
     iconName: "tg",
     href: "https://t.me/rosa_mundi_tg",
-    image: tg,
-    image_hover: tg_hover,
+    image: "tg",
+    image_hover: "tg_hover",
   },
 ];
 const INITIAL_STATE = { gmail: false, logo: false, tg: false, vk: false, youtube: false };
@@ -81,11 +72,11 @@ const Footer = () => {
                 setIconsHover(INITIAL_STATE);
               }}
             >
-              <img
-                className={styles.image}
-                src={`${iconsHover[item.iconName] ? item.image_hover : item.image}`}
-                alt=""
-              />
+              {iconsHover[item.iconName] ? (
+                <Icon name="logo_hover" className={styles.image} key="logo" />
+              ) : (
+                <Icon name="logo" className={styles.image} key="logo" />
+              )}
             </Link>
           )}
           {item.iconName !== "logo" && (
@@ -106,11 +97,11 @@ const Footer = () => {
               }}
               rel="noreferrer"
             >
-              <img
-                className={styles.image}
-                src={`${iconsHover[item.iconName] ? item.image_hover : item.image}`}
-                alt=""
-              />
+              {iconsHover[item.iconName] ? (
+                <Icon name={item.image_hover} className={styles.image} key={item.iconName} />
+              ) : (
+                <Icon name={item.image} className={styles.image} key={item.iconName} />
+              )}
             </a>
           )}
         </div>

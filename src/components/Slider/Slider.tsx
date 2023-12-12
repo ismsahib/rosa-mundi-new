@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Card from "../Card/Card";
 import CardNotFound from "../Card/CardNotFound";
-import Icon from "../Icon/Icon";
+import { Icon } from "../Icon/Icon";
 import { SearchData } from "@root/types/search";
 
 import "./slyderStyles.scss";
@@ -28,7 +28,7 @@ const Slider: FC<{ data: SearchData }> = ({ data }) => {
           depth: 175,
           modifier: 2.5,
         }}
-        pagination={{ el: ".swiper-pagination", clickable: true, dynamicBullets: true}}
+        pagination={{ el: ".swiper-pagination", clickable: true, dynamicBullets: true }}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",

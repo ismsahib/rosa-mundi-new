@@ -27,5 +27,3 @@ export const Icon: (props: IconProps) => JSX.Element = (props) => {
   const Component = (images[name] || images["logo"]) as React.ElementType;
   return <Component {...rest} />;
 };
-
-export default Icon;
