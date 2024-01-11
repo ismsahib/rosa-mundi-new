@@ -1,15 +1,6 @@
-# React Webpack Typescript Starter
+# Frontend для литературного журнала **[Rosamundi](https://rosa-mundi.ru/)**
 
-> Starter Typescript React pack with Webpack & Babel.
-
-- **[React](https://facebook.github.io/react/)** (18.x)
-- **[Webpack](https://webpack.js.org/)** (5.x)
-- **[Typescript](https://www.typescriptlang.org/)** (4.x)
-- [SASS](http://sass-lang.com/) support
-- Image support ([Image Webpack Loader](https://github.com/tcoopman/image-webpack-loader))
-- Code linting ([ESLint](https://github.com/eslint/eslint)) and formatting
-  ([Prettier](https://github.com/prettier/prettier))
-- Production build script
+> TS / React / React Router / Axios / React Helmet / Swiper
 
 ## Installation
 
