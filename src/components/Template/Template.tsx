@@ -1,15 +1,15 @@
 import React, { FC, ReactNode } from "react";
 
 import about from "../../assets/images/about.png";
-import main from "../../assets/images/main.png";
-import search from "../../assets/images/search.png";
+import main from "../../assets/gifs/main_gif.gif";
+import search from "../../assets/gifs/search_gif.gif";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 import styles from "./styles.m.scss";
 
 interface TemplateProps {
-  backgroundImage: "main" | "about" | "author"  | "publication" | "search"  | string;
+  backgroundImage: "main" | "about" | "author" | "publication" | "search" | string;
   header: boolean;
   children: ReactNode;
   footer: boolean;
@@ -29,7 +29,7 @@ const getStyle = (imageURLParameter: string) => {
     };
 };
 const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer, headerColor }) => {
-  let imageURL = main;
+  let imageURL = about;
   switch (backgroundImage) {
     case "main":
       imageURL = main;

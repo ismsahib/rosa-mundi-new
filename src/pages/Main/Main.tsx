@@ -40,14 +40,6 @@ const Main = () => {
             </div>
           </div>
           <div className={styles.menuItem}>
-            <Link to="/about" className={styles.menuTitle}>
-              [Π]ληροφορIες
-            </Link>
-            <div className={styles.menuDescription}>
-              The Information tab contains general information about the site, its purpose, and contact information.
-            </div>
-          </div>
-          <div className={styles.menuItem}>
             <Link to="/sections" className={styles.menuTitle}>
               Секции
             </Link>
