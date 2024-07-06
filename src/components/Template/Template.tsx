@@ -1,8 +1,8 @@
 import React, { FC, ReactNode } from "react";
 
 import about from "../../assets/images/about.png";
-import main from "../../assets/gifs/main_gif.gif";
-import search from "../../assets/gifs/search_gif.gif";
+import main from "../../assets/gifs/main.webm";
+import search from "../../assets/gifs/search.webm";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
@@ -15,8 +15,10 @@ interface TemplateProps {
   footer: boolean;
   headerColor?: boolean;
 }
+
 const getStyle = (imageURLParameter: string) => {
-  if (imageURLParameter === "author") return undefined;
+  if (isVideo(imageURLParameter) === true) return undefined;
+  else if (imageURLParameter === "author") return undefined;
   else if (imageURLParameter === "publication") return { backgroundColor: "white" };
   else
     return {
@@ -28,31 +30,43 @@ const getStyle = (imageURLParameter: string) => {
       height: "100%",
     };
 };
+
+const isVideo = (file) => {
+  const videoExtensions = ["mp4", "mkv", "mov", "avi", "webm"];
+  const extension = file.split(".").pop().toLowerCase();
+  return videoExtensions.includes(extension);
+};
+
 const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer, headerColor }) => {
-  let imageURL = about;
+  let mediaURL = about;
   switch (backgroundImage) {
     case "main":
-      imageURL = main;
+      mediaURL = main;
       break;
     case "about":
-      imageURL = about;
+      mediaURL = about;
       break;
     case "author":
-      imageURL = "author";
+      mediaURL = "author";
       break;
     case "publication":
-      imageURL = "publication";
+      mediaURL = "publication";
       break;
     case "search":
-      imageURL = search;
+      mediaURL = search;
       break;
     default:
-      imageURL = backgroundImage;
+      mediaURL = backgroundImage;
       break;
   }
-
+  const mediaType = isVideo(mediaURL);
   return (
-    <div className={styles.wrapper} style={getStyle(imageURL)}>
+    <div className={styles.wrapper} style={getStyle(mediaURL)}>
+      {mediaType && (
+        <video className={styles.video} autoPlay muted loop>
+          <source src={mediaURL} />
+        </video>
+      )}
       <div className={styles.content}>
         {header && headerColor !== undefined && <Header black={headerColor} />}
         <div className={styles.children} style={footer ? undefined : { marginBottom: 0 }}>
