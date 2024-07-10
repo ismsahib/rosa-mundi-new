@@ -17,7 +17,7 @@ const Main = () => {
       <PreLoader />
       <MyHelmet
         title="ROSAMUNDI"
-        description="rosamundi — поэтический проект, вдохновленный философией Д. Андреева. Здесь вы можете ознакомиться с творениями современных поэтов."
+        description="rosamundi — поэтический проект, вдохновленный философией Д. Андреева."
         image="https://rosa-mundi.ru/og.jpg"
       />
       <Template backgroundImage="main" footer={true} header={true} headerColor={false}>
