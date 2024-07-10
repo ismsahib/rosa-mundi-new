@@ -3,13 +3,14 @@ import React, { FC, ReactNode } from "react";
 import about from "../../assets/images/about.png";
 import main from "../../assets/gifs/main.webm";
 import search from "../../assets/gifs/search.webm";
+import sections from "../../assets/gifs/sections.webm";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 import styles from "./styles.m.scss";
 
 interface TemplateProps {
-  backgroundImage: "main" | "about" | "author" | "publication" | "search" | string;
+  backgroundImage: "main" | "about" | "author" | "publication" | "search" | "sections" | string;
   header: boolean;
   children: ReactNode;
   footer: boolean;
@@ -55,11 +56,16 @@ const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer
     case "search":
       mediaURL = search;
       break;
+    case "sections":
+      mediaURL = sections;
+      break;
     default:
       mediaURL = backgroundImage;
       break;
   }
+
   const mediaType = isVideo(mediaURL);
+
   return (
     <div className={styles.wrapper} style={getStyle(mediaURL)}>
       {mediaType && (

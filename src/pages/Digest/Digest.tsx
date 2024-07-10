@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import NotFound from "../NotFound/NotFound";
 import { fetchGetDigest } from "@root/api";
