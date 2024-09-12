@@ -23,32 +23,28 @@
   }
   .title {
     text-align: center;
-    line-height: 100%;
     font-size: 200px;
     font-weight: 500;
+    margin-top: -26px;
 
     @media screen and (max-width: $tabletAlb) {
       font-size: 160px;
-      //margin-top: -22.5px;
-      line-height: 100%;
+      margin-top: -22.5px;
     }
 
     @media screen and (max-width: $tablet) {
       font-size: 110px;
-      //margin-top: -15.5px;
-      line-height: 100%;
+      margin-top: -15.5px;
     }
 
     @media screen and (max-width: $mobileAlb) {
       font-size: 70px;
-      //margin-top: -9.5px;
-      line-height: 100%;
+      margin-top: -9.5px;
     }
 
     @media screen and (max-width: $mobile) {
       font-size: 50px;
-      //margin-top: -7px;
-      line-height: 100%;
+      margin-top: -7px;
     }
   }
   .subtitle {

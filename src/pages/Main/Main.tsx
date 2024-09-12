@@ -17,7 +17,7 @@ const Main = () => {
       <PreLoader />
       <MyHelmet
         title="ROSAMUNDI"
-        description="rosamundi — поэтический проект, вдохновленный философией Д. Андреева."
+        description="rosamundi — поэтический проект, вдохновленный философией Д. Андреева. Здесь вы можете ознакомиться с творениями современных поэтов."
         image="https://rosa-mundi.ru/og.jpg"
       />
       <Template backgroundImage="main" footer={true} header={true} headerColor={false}>
@@ -37,6 +37,14 @@ const Main = () => {
             </Link>
             <div className={styles.menuDescription}>
               The Digest tab is a curated collection of the most recent and interesting news, articles, and reviews.
+            </div>
+          </div>
+          <div className={styles.menuItem}>
+            <Link to="/about" className={styles.menuTitle}>
+              [Π]ληροφορIες
+            </Link>
+            <div className={styles.menuDescription}>
+              The Information tab contains general information about the site, its purpose, and contact information.
             </div>
           </div>
           <div className={styles.menuItem}>

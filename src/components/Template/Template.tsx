@@ -1,25 +1,22 @@
 import React, { FC, ReactNode } from "react";
 
 import about from "../../assets/images/about.png";
-import main from "../../assets/gifs/main.webm";
-import search from "../../assets/gifs/search.webm";
-import sections from "../../assets/gifs/sections.webm";
+import main from "../../assets/images/main.png";
+import search from "../../assets/images/search.png";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 import styles from "./styles.m.scss";
 
 interface TemplateProps {
-  backgroundImage: "main" | "about" | "author" | "publication" | "search" | "sections" | string;
+  backgroundImage: "main" | "about" | "author"  | "publication" | "search"  | string;
   header: boolean;
   children: ReactNode;
   footer: boolean;
   headerColor?: boolean;
 }
-
 const getStyle = (imageURLParameter: string) => {
-  if (isVideo(imageURLParameter) === true) return undefined;
-  else if (imageURLParameter === "author") return undefined;
+  if (imageURLParameter === "author") return undefined;
   else if (imageURLParameter === "publication") return { backgroundColor: "white" };
   else
     return {
@@ -31,48 +28,31 @@ const getStyle = (imageURLParameter: string) => {
       height: "100%",
     };
 };
-
-const isVideo = (file) => {
-  const videoExtensions = ["mp4", "mkv", "mov", "avi", "webm"];
-  const extension = file.split(".").pop().toLowerCase();
-  return videoExtensions.includes(extension);
-};
-
 const Template: FC<TemplateProps> = ({ backgroundImage, header, children, footer, headerColor }) => {
-  let mediaURL = about;
+  let imageURL = main;
   switch (backgroundImage) {
     case "main":
-      mediaURL = main;
+      imageURL = main;
       break;
     case "about":
-      mediaURL = about;
+      imageURL = about;
       break;
     case "author":
-      mediaURL = "author";
+      imageURL = "author";
       break;
     case "publication":
-      mediaURL = "publication";
+      imageURL = "publication";
       break;
     case "search":
-      mediaURL = search;
-      break;
-    case "sections":
-      mediaURL = sections;
+      imageURL = search;
       break;
     default:
-      mediaURL = backgroundImage;
+      imageURL = backgroundImage;
       break;
   }
 
-  const mediaType = isVideo(mediaURL);
-
   return (
-    <div className={styles.wrapper} style={getStyle(mediaURL)}>
-      {mediaType && (
-        <video className={styles.video} autoPlay muted loop>
-          <source src={mediaURL} />
-        </video>
-      )}
+    <div className={styles.wrapper} style={getStyle(imageURL)}>
       <div className={styles.content}>
         {header && headerColor !== undefined && <Header black={headerColor} />}
         <div className={styles.children} style={footer ? undefined : { marginBottom: 0 }}>
